@@ -1,0 +1,47 @@
+smart_ai_analyze_threat = {
+    # Сброс старых флагов
+    clr_country_flag = smart_ai_seen_infantry_heavy
+    clr_country_flag = smart_ai_seen_tanks
+    clr_country_flag = smart_ai_seen_planes
+    clr_country_flag = smart_ai_seen_subs
+    clr_country_flag = smart_ai_seen_forts
+    
+    every_enemy_country = {
+        limit = { is_ai = no }
+        
+        # Враг выставил огромную пехотную армию
+        if = {
+            limit = {
+                num_divisions > 100
+                num_of_military_factories < 200
+            }
+            ROOT = { set_country_flag = smart_ai_seen_infantry_heavy }
+        }
+        
+        # Враг накопил танки
+        if = {
+            limit = {
+                has_tech = basic_medium_tank_chassis
+                num_of_military_factories > 100
+            }
+            ROOT = { set_country_flag = smart_ai_seen_tanks }
+        }
+        
+        # Враг вкладывается в авиацию
+        if = {
+            limit = {
+                num_of_military_factories > 150
+                has_tech = fighter2
+            }
+            ROOT = { set_country_flag = smart_ai_seen_planes }
+        }
+        
+        # Враг любит подлодки
+        if = {
+            limit = {
+                num_of_naval_factories > 30
+            }
+            ROOT = { set_country_flag = smart_ai_seen_subs }
+        }
+    }
+}

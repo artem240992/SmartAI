@@ -1,0 +1,13 @@
+spriteTypes = {
+	# Регистрация фона для окна выбора сценария
+	spriteType = {
+		name = "GFX_my_custom_bg" # Название, которое будем писать в коде
+		texturefile = "gfx/interface/cold_war_bg.png" # Путь к вашему файлу
+	}
+
+	# Регистрация картинки для самой закладки (1946)
+	spriteType = {
+		name = "GFX_my_custom_bookmark"
+		texturefile = "gfx/interface/cold_war_icon.png"
+	}
+}

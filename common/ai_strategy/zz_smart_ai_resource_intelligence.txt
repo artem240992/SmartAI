@@ -1,0 +1,45 @@
+# ============================================================
+#  Smart AI: Интеллект по ресурсам
+#  Файл: common/ai_strategy/zz_smart_ai_resource_intelligence.txt
+# ============================================================
+
+# Германия: захват Суэца и Ближнего Востока
+smart_ai_resources_GER = {
+    allowed = { original_tag = GER }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = area_priority id = middle_east value = 80 }
+    ai_strategy = { type = area_priority id = suez value = 40 }
+}
+
+# Япония: захват Тихого океана и Юго-Восточной Азии
+smart_ai_resources_JAP = {
+    allowed = { original_tag = JAP }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = area_priority id = pacific value = 100 }
+    ai_strategy = { type = area_priority id = burma value = 60 }
+}
+
+# Британия: защита Суэца и Ближнего Востока
+smart_ai_resources_ENG = {
+    allowed = { original_tag = ENG }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = area_priority id = suez value = 90 }
+    ai_strategy = { type = area_priority id = middle_east value = 70 }
+    ai_strategy = { type = area_priority id = north_africa value = 50 }
+}
+
+# США: защита ресурсов и морских путей
+smart_ai_resources_USA = {
+    allowed = { original_tag = USA }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = area_priority id = pacific value = 60 }
+    ai_strategy = { type = area_priority id = africa value = 40 }
+}

@@ -1,0 +1,78 @@
+smart_ai_global_priorities = {
+    allowed = { always = yes }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+    
+    # Приоритет советников
+    ai_strategy = {
+        type = pp_spend_priority
+        id = political_advisor
+        value = 50
+    }
+    ai_strategy = {
+        type = pp_spend_priority
+        id = military_advisor
+        value = 30
+    }
+    ai_strategy = {
+        type = pp_spend_priority
+        id = theorist
+        value = 25
+    }
+    
+    # Приоритет исследования оружия поддержки
+    ai_strategy = {
+        type = research_weight_factor
+        id = support_weapons
+        value = 100
+    }
+}
+
+smart_ai_division_roles = {
+    allowed = { always = yes }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+    
+    # Улучшенные приоритеты ролей дивизий
+    ai_strategy = {
+        type = role_ratio
+        id = infantry
+        value = 60
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = armor
+        value = 15
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = motorized
+        value = 10
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = garrison
+        value = 10
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = cavalry
+        value = 0
+    }
+}
+
+# Агрессивное поведение для создания котлов
+smart_ai_aggressive_fronts = {
+    allowed = { always = yes }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        ratio = 0.3 
+        priority = 100 
+        ordertype = front
+        execution_type = rush 
+        manual_attack = yes 
+    }
+}

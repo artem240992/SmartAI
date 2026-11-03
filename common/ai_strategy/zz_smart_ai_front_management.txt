@@ -1,0 +1,46 @@
+# ============================================================
+#  Smart AI: Улучшенное управление фронтом
+#  Файл: common/ai_strategy/zz_smart_ai_front_management.txt
+# ============================================================
+
+# ---- АГРЕССИВНЫЙ ПРОРЫВ ----
+smart_ai_front_breakthrough = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war = yes
+        NOT = { has_country_flag = smart_ai_lost_state }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        priority = 200
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+}
+
+# ---- ОСТОРОЖНАЯ ОБОРОНА ----
+smart_ai_front_careful_defense = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war = yes
+        has_country_flag = smart_ai_lost_state
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        priority = 250
+        ordertype = front
+        execution_type = careful
+        execute_order = yes
+        manual_attack = no
+    }
+
+    ai_strategy = { type = role_ratio id = garrison value = 80 }
+}

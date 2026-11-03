@@ -1,0 +1,19 @@
+# Усиление эскорта и ПЛО при морской угрозе
+smart_ai_counter_enemy_navy = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_enemy_naval_superiority
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = destroyer value = 250 }
+    ai_strategy = { type = role_ratio id = light_cruiser value = 180 }
+
+    ai_strategy = { type = research_weight_factor id = sonar value = 300 }
+    ai_strategy = { type = research_weight_factor id = improved_sonar value = 250 }
+    ai_strategy = { type = research_weight_factor id = basic_depth_charges value = 280 }
+    ai_strategy = { type = research_weight_factor id = improved_depth_charges value = 220 }
+    ai_strategy = { type = research_weight_factor id = basic_destroyer value = 200 }
+    ai_strategy = { type = research_weight_factor id = basic_light_cruiser value = 180 }
+}

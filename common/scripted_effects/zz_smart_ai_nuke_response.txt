@@ -1,0 +1,7 @@
+smart_ai_trigger_nuke_response = {
+    # Ставим флаг, который будет снят через 90 дней (см. on_actions)
+    set_country_flag = smart_ai_under_nuclear_attack
+
+    # Немедленно усиливаем ПВО
+    # (эти стратегии активны, пока действует флаг — см. ai_strategy ниже)
+}

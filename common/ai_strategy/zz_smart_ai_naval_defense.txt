@@ -1,0 +1,19 @@
+# Усиленная оборона портов при частых десантах
+smart_ai_port_garrison_boost = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_naval_invasion_alert
+    }
+    abort_when_not_enabled = yes
+
+    # Увеличиваем долю дивизий на гарнизонной службе (ИСПРАВЛЕНО)
+    ai_strategy = { type = role_ratio id = garrison value = 150 }
+
+    # Дополнительно: приоритет строительства береговых батарей
+    ai_strategy = {
+        type = building_target
+        id = coastal_bunker
+        value = 60
+    }
+}

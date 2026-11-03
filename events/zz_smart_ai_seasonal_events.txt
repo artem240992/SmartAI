@@ -1,0 +1,240 @@
+add_namespace = zz_smart_ai_seasonal
+
+# ============================================================
+# ЗИМНИЕ ИВЕНТЫ (декабрь–февраль)
+# ============================================================
+
+# СССР: «Генерал Мороз»
+country_event = {
+    id = zz_smart_ai_seasonal.1
+    title = zz_smart_ai_seasonal.1.t
+    desc = zz_smart_ai_seasonal.1.d
+    picture = GFX_report_event_soviet_winter
+    is_triggered_only = yes
+
+    trigger = { tag = SOV }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = russian_winter_bonus days = 90 }
+        set_country_flag = smart_ai_soviet_winter_event
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.1.a
+        clr_country_flag = smart_ai_soviet_winter_event
+    }
+}
+
+# Германия: «Русская зима»
+country_event = {
+    id = zz_smart_ai_seasonal.2
+    title = zz_smart_ai_seasonal.2.t
+    desc = zz_smart_ai_seasonal.2.d
+    picture = GFX_report_event_german_winter
+    is_triggered_only = yes
+
+    trigger = { tag = GER }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = german_winter_debuff days = 90 }
+        set_country_flag = smart_ai_german_winter_event
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.2.a
+        clr_country_flag = smart_ai_german_winter_event
+    }
+}
+
+# Финляндия: «Сиси»
+country_event = {
+    id = zz_smart_ai_seasonal.3
+    title = zz_smart_ai_seasonal.3.t
+    desc = zz_smart_ai_seasonal.3.d
+    picture = GFX_report_event_finnish_winter
+    is_triggered_only = yes
+
+    trigger = { tag = FIN }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = finnish_winter_bonus days = 90 }
+        set_country_flag = smart_ai_finnish_winter_event
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.3.a
+        clr_country_flag = smart_ai_finnish_winter_event
+    }
+}
+
+# Общий зимний ивент
+country_event = {
+    id = zz_smart_ai_seasonal.4
+    title = zz_smart_ai_seasonal.4.t
+    desc = zz_smart_ai_seasonal.4.d
+    picture = GFX_report_event_winter
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { tag = SOV }
+        NOT = { tag = GER }
+        NOT = { tag = FIN }
+    }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = harsh_winter days = 90 }
+        set_country_flag = smart_ai_general_winter_event
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.4.a
+        clr_country_flag = smart_ai_general_winter_event
+    }
+}
+
+# ============================================================
+# ЛЕТНИЕ ИВЕНТЫ (июнь–август)
+# ============================================================
+
+# Италия: «Африканская жара»
+country_event = {
+    id = zz_smart_ai_seasonal.5
+    title = zz_smart_ai_seasonal.5.t
+    desc = zz_smart_ai_seasonal.5.d
+    picture = GFX_report_event_desert_heat
+    is_triggered_only = yes
+
+    trigger = { tag = ITA }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = italian_desert_bonus days = 90 }
+        set_country_flag = smart_ai_italian_summer_event
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.5.a
+        clr_country_flag = smart_ai_italian_summer_event
+    }
+}
+
+# Германия: «Африканская жара» (дебафф)
+country_event = {
+    id = zz_smart_ai_seasonal.6
+    title = zz_smart_ai_seasonal.6.t
+    desc = zz_smart_ai_seasonal.6.d
+    picture = GFX_report_event_desert_heat
+    is_triggered_only = yes
+
+    trigger = { tag = GER }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = african_heat days = 90 }
+        set_country_flag = smart_ai_german_summer_event
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.6.a
+        clr_country_flag = smart_ai_german_summer_event
+    }
+}
+
+# Япония: «Муссоны»
+country_event = {
+    id = zz_smart_ai_seasonal.7
+    title = zz_smart_ai_seasonal.7.t
+    desc = zz_smart_ai_seasonal.7.d
+    picture = GFX_report_event_monsoon
+    is_triggered_only = yes
+
+    trigger = { tag = JAP }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = monsoon_debuff days = 90 }
+        set_country_flag = smart_ai_japanese_summer_event
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.7.a
+        clr_country_flag = smart_ai_japanese_summer_event
+    }
+}
+
+# Общий летний ивент
+country_event = {
+    id = zz_smart_ai_seasonal.8
+    title = zz_smart_ai_seasonal.8.t
+    desc = zz_smart_ai_seasonal.8.d
+    picture = GFX_report_event_summer
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { tag = ITA }
+        NOT = { tag = GER }
+        NOT = { tag = JAP }
+        NOT = { tag = SOV }
+    }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = african_heat days = 90 }
+        set_country_flag = smart_ai_general_summer_event
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.8.a
+        clr_country_flag = smart_ai_general_summer_event
+    }
+}
+
+# ============================================================
+# НОВЫЕ: ОСЕННИЕ И ВЕСЕННИЕ ИВЕНТЫ ДЛЯ ГЕРМАНИИ (ТОЛЬКО В ВОЙНЕ С СССР)
+# ============================================================
+
+# Германия: Осенняя распутица (октябрь-ноябрь)
+country_event = {
+    id = zz_smart_ai_seasonal.9
+    title = zz_smart_ai_seasonal.9.t
+    desc = zz_smart_ai_seasonal.9.d
+    picture = GFX_report_event_german_winter
+    is_triggered_only = yes
+
+    # ДОБАВЛЕНО: проверка войны с СССР
+    trigger = { 
+        tag = GER 
+        has_war_with = SOV 
+    }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = german_autumn_speed_penalty days = 60 }
+        # Устанавливаем временный флаг на 60 дней, чтобы событие не спамилось
+        set_country_flag = { flag = smart_ai_german_autumn_event days = 60 }
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.9.a
+    }
+}
+
+# Германия: Весенняя распутица (март-апрель)
+country_event = {
+    id = zz_smart_ai_seasonal.10
+    title = zz_smart_ai_seasonal.10.t
+    desc = zz_smart_ai_seasonal.10.d
+    picture = GFX_report_event_german_winter
+    is_triggered_only = yes
+
+    # ДОБАВЛЕНО: проверка войны с СССР
+    trigger = { 
+        tag = GER 
+        has_war_with = SOV 
+    }
+
+    immediate = {
+        add_dynamic_modifier = { modifier = german_spring_speed_penalty days = 60 }
+        # Временный флаг на 60 дней
+        set_country_flag = { flag = smart_ai_german_spring_event days = 60 }
+    }
+
+    option = {
+        name = zz_smart_ai_seasonal.10.a
+    }
+}

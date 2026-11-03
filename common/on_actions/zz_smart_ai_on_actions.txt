@@ -1,0 +1,68 @@
+on_actions = {
+    on_monthly = {
+        effect = {
+            every_country = {
+                limit = {
+                    is_ai = yes
+                }
+
+                # Подготовка логистики СССР перед Финской войной 
+                smart_ai_prepare_finland_logistics = yes
+
+                # Блок боевых действий (только если страна воюет)
+                if = {
+                    limit = { has_war = yes }
+                    
+                    smart_ai_check_season = yes
+                    smart_ai_check_bombing_damage = yes
+                    smart_ai_manage_air_supply = yes
+
+                    # Раз в 6 месяцев строим узел снабжения
+                    if = {
+                        limit = { NOT = { has_variable = smart_ai_supply_hub_timer } }
+                        set_variable = { smart_ai_supply_hub_timer = 6 }
+                    }
+                    subtract_from_variable = { smart_ai_supply_hub_timer = 1 }
+                    if = {
+                        limit = { check_variable = { smart_ai_supply_hub_timer < 1 } }
+                        smart_ai_build_supply_hub = yes
+                        set_variable = { smart_ai_supply_hub_timer = 6 }
+                    }
+
+                    # Контратака СССР при зимнем дебаффе Германии
+                    if = {
+                        limit = {
+                            tag = SOV
+                            has_war_with = GER
+                            # Проверяем, что у Германии висит зимний дебафф
+                            GER = { has_dynamic_modifier = { modifier = german_winter_debuff } }
+                            NOT = { has_idea = soviet_winter_counterattack_idea }
+                        }
+                        add_timed_idea = {
+                            idea = soviet_winter_counterattack_idea
+                            days = 90
+                        }
+                        # ВЫЗОВ СКРИПТОВОГО ЭФФЕКТА (AI-приказы, логистика, шаблоны)
+                        soviet_winter_counterattack_effect = yes
+                    }
+                }
+            }
+        }
+    }
+    
+    on_quarterly = {
+        effect = {
+            every_country = {
+                limit = { is_ai = yes }
+                smart_ai_analyze_threat = yes
+                smart_ai_analyze_player_templates = yes
+                smart_ai_analyze_naval_threat = yes
+                smart_ai_analyze_resource_crisis = yes
+                smart_ai_analyze_airborne_threat = yes
+                smart_ai_analyze_special_forces = yes
+                smart_ai_clear_battle_memory = yes
+                smart_ai_analyze_armor_threat = yes
+            }
+        }
+    }
+}

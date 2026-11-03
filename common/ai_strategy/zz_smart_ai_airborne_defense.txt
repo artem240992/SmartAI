@@ -1,0 +1,20 @@
+# Усиление ПВО в тыловых штатах при угрозе воздушных десантов
+smart_ai_counter_airborne = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_airborne_threat
+    }
+    abort_when_not_enabled = yes
+
+    # Строим больше зенитных батарей в штатах
+    ai_strategy = { type = building_target id = anti_air_building value = 5 }
+
+    # Усиливаем гарнизоны в ключевых штатах
+    ai_strategy = { type = role_ratio id = garrison value = 60 }
+
+    # Приоритет исследований ПВО
+    ai_strategy = { type = research_weight_factor id = interwar_antiair value = 200 }
+    ai_strategy = { type = research_weight_factor id = antiair1 value = 180 }
+    ai_strategy = { type = research_weight_factor id = antiair2 value = 150 }
+}

@@ -1,0 +1,20 @@
+# Этот эффект теперь будет вызываться из on_actions
+smart_ai_record_lost_state = {
+    # Записываем ID потерянного штата в массив (максимум 5 последних)
+    add_to_array = {
+        array = smart_ai_lost_states
+        value = FROM.FROM  # ID штата
+    }
+    # Устанавливаем флаг, что были потери
+    set_country_flag = smart_ai_lost_state
+    # Ограничиваем размер массива, чтобы не переполнялся
+    if = {
+        limit = { check_variable = { smart_ai_lost_states^5 > 0 } } # Если есть 6-й элемент
+        remove_from_array = { array = smart_ai_lost_states index = 0 } # Удаляем самый старый
+    }
+}
+
+smart_ai_clear_battle_memory = {
+    clear_array = smart_ai_lost_states
+    clr_country_flag = smart_ai_lost_state
+}

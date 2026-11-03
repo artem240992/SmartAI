@@ -1,0 +1,36 @@
+bookmarks = {
+    bookmark = {
+        name = "COLD_WAR_BOOKMARK_NAME" # Локализованное название
+        desc = "COLD_WAR_BOOKMARK_DESC" # Локализованное описание
+        
+        # Дата начала: 1 января 1946 года, 12:00
+        date = 1946.1.1.12 
+        
+        # Картинка для закладки. Можно использовать ванильную или свою.
+        picture = "GFX_cold_war_wip" 
+        
+        # Страна, которая будет выбрана по умолчанию
+        default_country = "USA" 
+        
+        # Список "интересных" стран для этой закладки
+        USA = {
+            history = "COLD_WAR_USA_HISTORY" # Описание страны
+            ideology = democratic # Стартовая идеология
+        }
+        SOV = {
+            history = "COLD_WAR_SOV_HISTORY"
+            ideology = communism
+        }
+        # ... и так далее для других ключевых стран
+        
+        # Кнопка "Другие страны"
+        "---" = {
+            history = "COLD_WAR_OTHER_HISTORY"
+        }
+        
+        # Эффект, выполняемый при выборе этой закладки
+        effect = {
+            randomize_weather = 12345 # Важно для корректной работы погоды
+        }
+    }
+}

@@ -1,0 +1,20 @@
+# Подготовка СССР к войне с Финляндией
+smart_ai_soviet_finland_prep = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        tag = SOV
+        NOT = { has_war_with = FIN }
+        date > 1938.1.1
+        date < 1939.12.1
+    }
+    abort_when_not_enabled = yes
+
+    # Повышаем приоритет зоны Зимней войны (Карелия, Ленинград)
+    # ИИ будет держать там больше дивизий и чаще строить
+    ai_strategy = { type = area_priority id = winter_war_front value = 150 }
+
+    # Требуем больше поездов и грузовиков для снабжения севера
+    ai_strategy = { type = min_wanted_supply_trains value = 50 }
+    ai_strategy = { type = min_wanted_supply_trucks value = 1000 }
+}

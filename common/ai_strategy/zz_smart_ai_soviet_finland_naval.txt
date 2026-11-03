@@ -1,0 +1,20 @@
+# Принуждение СССР к морскому десанту в Финляндии
+smart_ai_soviet_finland_naval_invasion = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        tag = SOV
+        has_war_with = FIN
+    }
+    abort_when_not_enabled = yes
+
+    # Приказываем ИИ сфокусироваться на морском вторжении в Финляндию
+    # (значение 100 — высокий приоритет)
+    ai_strategy = { type = naval_invasion_focus value = 100 }
+    
+    # Указываем, что целью вторжения должна быть именно Финляндия
+    ai_strategy = { type = invasion_unit_request id = FIN value = 50 }
+
+    # Помогаем ИИ выделить флот для поддержки десанта
+    ai_strategy = { type = naval_invasion_support_priority value = 100 }
+}

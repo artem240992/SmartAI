@@ -1,0 +1,19 @@
+# Экономическая адаптация при нехватке ресурсов
+smart_ai_resource_adaptation = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_resource_crisis
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = building_target id = synthetic_refinery value = 10 }
+
+    ai_strategy = { type = research_weight_factor id = synth_oil_experiments value = 300 }
+    ai_strategy = { type = research_weight_factor id = oil_processing value = 250 }
+    ai_strategy = { type = research_weight_factor id = rubber_processing value = 280 }
+    ai_strategy = { type = research_weight_factor id = improved_rubber_processing value = 220 }
+
+    # Косвенная поддержка торговли через дипломатию
+    ai_strategy = { type = pp_spend_priority id = relation value = 150 }
+}

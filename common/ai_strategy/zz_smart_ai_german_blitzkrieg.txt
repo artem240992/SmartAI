@@ -1,0 +1,45 @@
+# ============================================================
+#  Smart AI: Немецкий Блицкриг и Окружение
+#  Файл: common/ai_strategy/zz_smart_ai_german_blitzkrieg.txt
+# ============================================================
+
+smart_ai_german_blitzkrieg_offensive = {
+    allowed = { original_tag = GER }
+    enable = {
+        is_ai = yes
+        has_war = yes
+        # Активируется в войне против СССР или крупных стран
+        OR = {
+            has_war_with = SOV
+            has_war_with = FRA
+            has_war_with = ENG
+        }
+    }
+    abort_when_not_enabled = yes
+
+    # 1. Агрессивное выполнение приказов (Рывок)
+    # Заставляет ИИ не ждать полной подготовки, а ломиться вперед.
+    ai_strategy = {
+        type = front_control
+        tag = SOV # Можно заменить на любого врага или убрать для всех фронтов
+        priority = 150
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+
+    # 2. Концентрация танков на фронте (Кулак)
+    # Заставляет ИИ собирать бронетанковые дивизии в одном месте для прорыва.
+    ai_strategy = {
+        type = front_armor_score
+        id = SOV
+        value = 100 # Максимальная концентрация танков на этом фронте
+    }
+
+    # 3. Соотношение ролей для блицкрига
+    # Больше танков и моторизованной пехоты для мобильной войны.
+    ai_strategy = { type = role_ratio id = armor value = 35 } # 35% танков
+    ai_strategy = { type = role_ratio id = motorized value = 25 } # 25% мотопехоты
+    ai_strategy = { type = role_ratio id = infantry value = 40 }
+}

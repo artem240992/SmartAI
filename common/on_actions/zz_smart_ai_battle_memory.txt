@@ -1,0 +1,13 @@
+on_actions = {
+    on_state_control_changed = {
+        effect = {
+            if = {
+                limit = {
+                    FROM = { is_ai = yes }
+                    ROOT = { NOT = { is_ai = yes } } # Игрок захватил штат у ИИ
+                }
+                FROM = { smart_ai_record_lost_state = yes }
+            }
+        }
+    }
+}

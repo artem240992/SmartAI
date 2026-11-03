@@ -1,0 +1,15 @@
+smart_ai_nuke_aa_priority = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_under_nuclear_attack
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = unit_ratio id = fighter value = 400 }
+
+    ai_strategy = { type = research_weight_factor id = interwar_antiair value = 300 }
+    ai_strategy = { type = research_weight_factor id = antiair1 value = 250 }
+    ai_strategy = { type = research_weight_factor id = fighter1 value = 250 }
+    ai_strategy = { type = research_weight_factor id = fighter2 value = 200 }
+}

@@ -1,0 +1,24 @@
+# Приоритет захвата регионов с ключевыми узлами снабжения противника
+smart_ai_capture_supply_areas = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war = yes
+    }
+    abort_when_not_enabled = yes
+
+    # Суэц — ключевой узел снабжения Британии
+    ai_strategy = { type = area_priority id = suez value = 200 }
+
+    # Северная Африка — путь к Суэцу
+    ai_strategy = { type = area_priority id = north_africa value = 180 }
+
+    # Ближний Восток — нефть и снабжение
+    ai_strategy = { type = area_priority id = middle_east value = 160 }
+
+    # Бирма — снабжение в Азии
+    ai_strategy = { type = area_priority id = burma value = 140 }
+
+    # Тихий океан — островные узлы снабжения
+    ai_strategy = { type = area_priority id = pacific value = 120 }
+}

@@ -1,0 +1,35 @@
+# Без DLC By Blood Alone
+smart_ai_use_special_forces_base = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_special_forces_ready
+        NOT = { has_dlc = "By Blood Alone" }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = paratrooper value = 40 }
+    ai_strategy = { type = role_ratio id = marine value = 35 }
+    ai_strategy = { type = research_weight_factor id = paratroopers value = 200 }
+    ai_strategy = { type = research_weight_factor id = marines value = 180 }
+    ai_strategy = { type = research_weight_factor id = early_transport_plane value = 250 }
+    ai_strategy = { type = research_weight_factor id = improved_transport_plane value = 200 }
+}
+
+# С DLC By Blood Alone
+smart_ai_use_special_forces_bba = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_special_forces_ready
+        has_dlc = "By Blood Alone"
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = paratrooper value = 40 }
+    ai_strategy = { type = role_ratio id = marine value = 35 }
+    ai_strategy = { type = research_weight_factor id = paratroopers value = 200 }
+    ai_strategy = { type = research_weight_factor id = marines value = 180 }
+    ai_strategy = { type = research_weight_factor id = bba_early_transport_plane value = 250 }
+    ai_strategy = { type = research_weight_factor id = bba_improved_transport_plane value = 200 }
+}

@@ -1,0 +1,19 @@
+on_actions = {
+    on_nuke_drop = {
+        effect = {
+            # ROOT — страна, сбросившая бомбу. FROM — штат, по которому ударили.
+            if = {
+                limit = {
+                    FROM = {
+                        owner = { is_ai = yes }
+                    }
+                }
+                FROM = {
+                    owner = {
+                        smart_ai_trigger_nuke_response = yes
+                    }
+                }
+            }
+        }
+    }
+}

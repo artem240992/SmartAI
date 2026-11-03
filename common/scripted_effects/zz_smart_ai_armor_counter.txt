@@ -1,0 +1,12 @@
+smart_ai_analyze_armor_threat = {
+    clr_country_flag = smart_ai_armor_threat_detected
+
+    every_enemy_country = {
+        limit = {
+            is_ai = no
+            num_divisions > 40
+            ai_has_role_division = armor
+        }
+        ROOT = { set_country_flag = smart_ai_armor_threat_detected }
+    }
+}

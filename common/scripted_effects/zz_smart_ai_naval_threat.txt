@@ -1,0 +1,19 @@
+smart_ai_analyze_naval_threat = {
+    clr_country_flag = smart_ai_enemy_naval_superiority
+    clr_country_flag = smart_ai_convoy_warfare_threat
+
+    every_enemy_country = {
+        limit = {
+            is_ai = no
+            num_of_naval_factories > 30
+            has_navy_size = { size > 50 }
+        }
+        ROOT = { set_country_flag = smart_ai_enemy_naval_superiority }
+    }
+
+    # Проверяем угрозу конвоям через convoy_threat (0–1)
+    if = {
+        limit = { convoy_threat > 0.4 }
+        set_country_flag = smart_ai_convoy_warfare_threat
+    }
+}

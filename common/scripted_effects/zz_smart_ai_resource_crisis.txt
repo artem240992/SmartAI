@@ -1,0 +1,16 @@
+smart_ai_analyze_resource_crisis = {
+    clr_country_flag = smart_ai_resource_crisis
+
+    # Проверяем нехватку ресурсов
+    if = {
+        limit = {
+            OR = {
+                oil < 0
+                rubber < 0
+                steel < 0
+                aluminium < 0
+            }
+        }
+        set_country_flag = smart_ai_resource_crisis
+    }
+}

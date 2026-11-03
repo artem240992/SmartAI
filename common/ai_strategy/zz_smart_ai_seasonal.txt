@@ -1,0 +1,47 @@
+# Зимняя стратегия: осторожное наступление, усиленная оборона
+smart_ai_winter_defense = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_winter
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        priority = 150
+        ordertype = front
+        execution_type = careful
+        execute_order = yes
+        manual_attack = no
+    }
+    
+    ai_strategy = {
+        type = role_ratio 
+        value = 80
+    }
+}
+
+# Летняя стратегия: агрессивное наступление
+smart_ai_summer_offensive = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_summer
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        priority = 200
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+    
+    ai_strategy = {
+        type = role_ratio 
+        value = -30
+    }
+}

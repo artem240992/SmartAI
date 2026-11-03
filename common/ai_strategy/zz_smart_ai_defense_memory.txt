@@ -1,0 +1,12 @@
+# ИИ усиливает оборону, если недавно терял штаты
+smart_ai_defend_lost_territory = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_lost_state
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = front_control priority = 200 ordertype = front execution_type = careful execute_order = yes manual_attack = no }
+    ai_strategy = { type = role_ratio id = garrison value = 100 }
+}

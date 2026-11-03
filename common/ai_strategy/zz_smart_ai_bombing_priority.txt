@@ -1,0 +1,21 @@
+# Усиление ПВО при стратегических бомбардировках
+smart_ai_aa_bombing_response = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_under_air_bombing
+    }
+    abort_when_not_enabled = yes
+
+    # Повышаем приоритет истребителей
+    ai_strategy = { type = unit_ratio id = fighter value = 350 }
+
+    # Усиливаем исследования ПВО и истребителей
+    ai_strategy = { type = research_weight_factor id = interwar_antiair value = 250 }
+    ai_strategy = { type = research_weight_factor id = antiair1 value = 200 }
+    ai_strategy = { type = research_weight_factor id = fighter1 value = 200 }
+    ai_strategy = { type = research_weight_factor id = fighter2 value = 180 }
+
+    # Усиливаем строительство зенитных батарей в штатах
+    ai_strategy = { type = building_target id = anti_air_building value = 5 }
+}

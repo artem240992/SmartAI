@@ -1,0 +1,52 @@
+ideas = {
+    country = {
+        # Идея: Зимнее контрнаступление (выдается при зимнем дебаффе Германии)
+        soviet_winter_counterattack_idea = {
+            name = "soviet_winter_counterattack"
+            picture = GFX_idea_soviet_winter
+            
+            modifier = {
+                dig_in_speed_factor = 0.5
+                max_dig_in_factor = 0.2
+                army_attack_factor = 0.1
+                breakthrough_factor = 0.1
+            }
+
+            targeted_modifier = {
+                tag = GER
+                attack_bonus_against = 0.2
+            }
+
+            allowed = { always = yes }
+        }
+
+        # НОВАЯ ИДЕЯ: Зимняя пехота (выдается на 90 дней через скрипт)
+        soviet_winter_infantry_bonus = {
+            name = "soviet_winter_infantry_bonus"
+            picture = GFX_idea_soviet_winter
+            
+            modifier = {
+                # ИСПРАВЛЕНО: правильные названия модификаторов HOI4
+                breakthrough_factor = 0.2                     # +20% к прорыву (общий армейский)
+                army_infantry_attack_factor = 0.1             # +10% к атаке пехоты
+                modifier_army_sub_unit_infantry_speed_factor = 0.1 # +10% к скорости пехоты
+                winter_attrition_factor = -0.2                # -20% к потерям от мороза
+            }
+
+            allowed = { always = yes }
+        }
+
+        # Идея: Бонус за Зимнюю войну
+        soviet_winter_war_bonus_idea = {
+            name = "soviet_winter_war_bonus"
+            picture = GFX_idea_soviet_winter
+            
+            modifier = {
+                army_attack_factor = 0.1
+                breakthrough_factor = 0.1
+            }
+            
+            allowed = { always = yes }
+        }
+    }
+}

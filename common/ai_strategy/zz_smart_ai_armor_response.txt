@@ -1,0 +1,20 @@
+# Усиление противотанковой обороны при танковой угрозе
+smart_ai_counter_armor_concentration = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_armor_threat_detected
+    }
+    abort_when_not_enabled = yes
+
+    # Повышаем долю противотанковых дивизий
+    ai_strategy = { type = role_ratio id = anti_tank value = 50 }
+
+    # Усиливаем исследования противотанковых технологий
+    ai_strategy = { type = research_weight_factor id = antitank1 value = 200 }
+    ai_strategy = { type = research_weight_factor id = antitank2 value = 180 }
+
+    # Приоритет фронта с угрозой
+    ai_strategy = { type = front_armor_score id = GER value = -50 } # Меньше своих танков на этот фронт
+    ai_strategy = { type = front_armor_score id = SOV value = -50 }
+}

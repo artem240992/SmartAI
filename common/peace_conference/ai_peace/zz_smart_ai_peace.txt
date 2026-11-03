@@ -1,0 +1,28 @@
+peace_ai_desires = {
+    smart_ai_prefer_annexation = {
+        peace_action_type = take_states
+        enable = {
+            is_ai = yes
+        }
+        ai_desire = 50
+    }
+    
+    smart_ai_less_puppets = {
+        peace_action_type = puppet
+        enable = {
+            is_ai = yes
+        }
+        ai_desire = 25
+    }
+    
+    smart_ai_more_annexation_for_cores = {
+        peace_action_type = take_states
+        enable = {
+            is_ai = yes
+            FROM.FROM.FROM = {
+                is_core_of = ROOT
+            }
+        }
+        ai_desire = 75
+    }
+}

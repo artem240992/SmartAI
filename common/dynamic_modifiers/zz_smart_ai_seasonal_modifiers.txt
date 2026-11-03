@@ -1,0 +1,103 @@
+### ЗИМНИЕ МОДИФИКАТОРЫ ###
+
+# Суровая зима (общий дебафф для неподготовленных армий)
+harsh_winter = {
+    icon = GFX_idea_winter
+    enable = { always = yes }
+    army_speed_factor = -0.15
+    army_attack_factor = -0.10
+    winter_attrition_factor = 0.20
+}
+
+# Русская зима (бонус для СССР)
+russian_winter_bonus = {
+    icon = GFX_idea_soviet_winter
+    enable = { always = yes }
+    army_defence_factor = 0.15
+    winter_attrition_factor = -0.25
+    army_speed_factor = -0.10
+}
+
+# Финское мастерство (бонус для Финляндии)
+finnish_winter_bonus = {
+    icon = GFX_idea_finland_winter
+    enable = { always = yes }
+    army_attack_factor = 0.15
+    army_defence_factor = 0.10
+    winter_attrition_factor = -0.30
+}
+
+# Зимний дебафф для Германии
+german_winter_debuff = {
+    icon = GFX_idea_winter
+    enable = { always = yes }
+    army_attack_factor = -0.15
+    army_defence_factor = -0.10
+    winter_attrition_factor = 0.30
+    attrition = 0.02
+    supply_consumption_factor = 0.25
+}
+
+### НОВЫЕ СЕЗОННЫЕ МОДИФИКАТОРЫ ДЛЯ ГЕРМАНИИ ###
+
+# Осенняя распутица (октябрь-ноябрь)
+german_autumn_speed_penalty = {
+    icon = GFX_idea_winter
+    enable = { always = yes }
+
+    # 1. Замедляем все наземные войска на 80%
+    army_speed_factor = -0.8
+
+    # 2. Возвращаем скорость пехоте и кавалерии, чтобы распутица била только по технике
+    modifier_army_sub_unit_infantry_speed_factor = 0.8
+    modifier_army_sub_unit_cavalry_speed_factor = 0.8
+}
+
+# Весенняя распутица (март-апрель)
+german_spring_speed_penalty = {
+    icon = GFX_idea_winter
+    enable = { always = yes }
+
+    army_speed_factor = -0.8
+    modifier_army_sub_unit_infantry_speed_factor = 0.8
+    modifier_army_sub_unit_cavalry_speed_factor = 0.8
+}
+
+### ЛЕТНИЕ МОДИФИКАТОРЫ ###
+
+# Африканская жара (дебафф для европейских армий)
+african_heat = {
+    icon = GFX_idea_desert
+    enable = { always = yes }
+    army_speed_factor = -0.20
+    heat_attrition_factor = 0.25
+    army_attack_factor = -0.10
+}
+
+# Пустынное мастерство (бонус для Италии в Африке)
+italian_desert_bonus = {
+    icon = GFX_idea_italy_desert
+    enable = { always = yes }
+    army_speed_factor = 0.10
+    heat_attrition_factor = -0.20
+    army_attack_factor = 0.10
+}
+
+# Муссоны (дебафф для Японии в Азии)
+monsoon_debuff = {
+    icon = GFX_idea_monsoon
+    enable = { always = yes }
+    army_speed_factor = -0.25
+    army_attack_factor = -0.15
+    supply_consumption_factor = 0.15
+}
+
+### БОНУС ЗА ПОДГОТОВКУ ###
+
+# Усиленное зимнее снабжение
+winter_logistics_bonus = {
+    icon = GFX_idea_logistics
+    enable = { always = yes }
+    winter_attrition_factor = -0.20
+    supply_consumption_factor = -0.10
+}

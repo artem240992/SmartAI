@@ -1,0 +1,19 @@
+on_actions = {
+    on_monthly = {
+        effect = {
+            every_country = {
+                limit = {
+                    is_ai = yes
+                    has_country_flag = smart_ai_under_nuclear_attack
+                    check_variable = { smart_ai_nuke_timer > 0 }
+                }
+                subtract_from_variable = { smart_ai_nuke_timer = 1 }
+                if = {
+                    limit = { check_variable = { smart_ai_nuke_timer = 0 } }
+                    clr_country_flag = smart_ai_under_nuclear_attack
+                    clear_variable = smart_ai_nuke_timer
+                }
+            }
+        }
+    }
+}

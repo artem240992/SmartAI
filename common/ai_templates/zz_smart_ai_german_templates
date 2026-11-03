@@ -1,0 +1,82 @@
+# ============================================================
+#  Smart AI: Шаблоны Вермахта для Блицкрига
+#  Файл: common/ai_templates/zz_smart_ai_german_templates.txt
+# ============================================================
+
+# ------------------------------------------------------------
+# 1. ПЕХОТА (Infantry) - Ширина 18 (6 пехоты + 2 арты)
+#    Стандарт для удержания фронта и создания давления.
+# ------------------------------------------------------------
+smart_ai_ger_infantry = {
+    role = infantry
+    upgrade_prio = { factor = 5 }
+    
+    # Ширина 18 идеально вписывается в 70 (равнины) и 60 (лес)
+    target_width = 18 
+    width_weight = 2.0 
+
+    target_template = {
+        support = {
+            engineer = 1
+            recon = 1
+            artillery = 1 # Поддержка артиллерии для мощи
+        }
+        regiments = {
+            infantry = 6
+            artillery_brigade = 2
+        }
+    }
+    allowed_types = { infantry artillery_brigade engineer recon artillery }
+}
+
+# ------------------------------------------------------------
+# 2. ТАНКИ (Armor) - Ширина 30 (6 средних танков + 4 моторизованных)
+#    Главный инструмент для прорыва и окружения.
+# ------------------------------------------------------------
+smart_ai_ger_panzer = {
+    role = armor
+    upgrade_prio = { factor = 10 } # Высокий приоритет
+    
+    # Ширина 30-36 позволяет танкам эффективно бить в одном направлении
+    target_width = 30 
+    width_weight = 3.0 
+
+    target_template = {
+        support = {
+            engineer = 1
+            mot_recon = 1
+            logistics_company = 1 # Важно для снабжения в котлах
+        }
+        regiments = {
+            medium_armor = 6
+            motorized = 4
+            mot_artillery_brigade = 1
+        }
+    }
+    allowed_types = { medium_armor motorized mot_artillery_brigade engineer mot_recon logistics_company }
+}
+
+# ------------------------------------------------------------
+# 3. МОТОРИЗОВАННАЯ ПЕХОТА (Motorized) - Ширина 20 (8 мотопехоты + 2 арты)
+#    Для быстрого следования за танками и закрытия котлов.
+# ------------------------------------------------------------
+smart_ai_ger_motorized = {
+    role = motorized
+    upgrade_prio = { factor = 7 }
+    
+    # Ширина 20 — компромисс между скоростью и огневой мощью
+    target_width = 20 
+    width_weight = 2.0 
+
+    target_template = {
+        support = {
+            engineer = 1
+            mot_recon = 1
+        }
+        regiments = {
+            motorized = 8
+            mot_artillery_brigade = 2
+        }
+    }
+    allowed_types = { motorized mot_artillery_brigade engineer mot_recon }
+}

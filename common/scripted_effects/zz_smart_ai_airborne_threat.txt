@@ -1,0 +1,15 @@
+smart_ai_analyze_airborne_threat = {
+    clr_country_flag = smart_ai_airborne_threat
+
+    # Проверяем, есть ли у врага парашютисты
+    every_enemy_country = {
+        limit = {
+            is_ai = no
+            has_tech = paratroopers
+            num_divisions > 20
+        }
+        ROOT = {
+            set_country_flag = smart_ai_airborne_threat
+        }
+    }
+}

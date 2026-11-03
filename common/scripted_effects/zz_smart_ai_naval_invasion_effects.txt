@@ -1,0 +1,22 @@
+smart_ai_record_naval_invasion = {
+    # Создаём переменную-счётчик, если её нет
+    if = {
+        limit = { NOT = { has_variable = smart_ai_naval_invasion_count } }
+        set_variable = { smart_ai_naval_invasion_count = 0 }
+    }
+
+    # Увеличиваем счётчик
+    add_to_variable = { smart_ai_naval_invasion_count = 1 }
+
+    # Если десантов 3 и больше — тревога
+    if = {
+        limit = { check_variable = { smart_ai_naval_invasion_count > 2 } }
+        set_country_flag = smart_ai_naval_invasion_alert
+    }
+}
+
+# Сброс тревоги (вызывать из on_monthly)
+smart_ai_clear_naval_alert = {
+    clr_country_flag = smart_ai_naval_invasion_alert
+    clear_variable = smart_ai_naval_invasion_count
+}

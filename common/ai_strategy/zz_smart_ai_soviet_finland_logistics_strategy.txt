@@ -1,0 +1,18 @@
+# Приоритет строительства инфраструктуры и снабжения в приграничных с Финляндией штатах
+smart_ai_soviet_finland_logistics_priority = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        tag = SOV
+        date > 1938.1.1
+        date < 1941.1.1
+    }
+    abort_when_not_enabled = yes
+
+    # Повышаем приоритет строительства в зоне Зимней войны (Карелия, Ленинград)
+    ai_strategy = { type = area_priority id = winter_war_front value = 200 }
+
+    # Требуем от ИИ больше поездов и грузовиков для снабжения
+    ai_strategy = { type = min_wanted_supply_trains value = 100 }
+    ai_strategy = { type = min_wanted_supply_trucks value = 2000 }
+}

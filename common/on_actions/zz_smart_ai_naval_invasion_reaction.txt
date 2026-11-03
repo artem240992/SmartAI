@@ -1,0 +1,19 @@
+on_actions = {
+    on_naval_invasion = {
+        effect = {
+            # THIS — штат, куда высадились. ROOT — страна-агрессор. FROM — штат, откуда вышла invasion.
+            if = {
+                limit = {
+                    THIS = {
+                        owner = { is_ai = yes }   # Обороняется ИИ
+                    }
+                }
+                THIS = {
+                    owner = {
+                        smart_ai_record_naval_invasion = yes
+                    }
+                }
+            }
+        }
+    }
+}

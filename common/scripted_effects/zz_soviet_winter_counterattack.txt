@@ -1,0 +1,64 @@
+soviet_winter_counterattack_effect = {
+    SOV = {
+        # ==========================================
+        # 1. БОЕВЫЕ ПРИКАЗЫ И АГРЕССИЯ
+        # ==========================================
+        # Атаковать Германию, игнорируя нехватку снабжения (rush)
+        add_ai_strategy = {
+            type = front_control
+            tag = GER
+            priority = 10
+            ordertype = front
+            execution_type = rush 
+            execute_order = yes
+        }
+
+        # Снятие ограничений армейской некомпетентности
+        add_ai_strategy = {
+            type = ignore_army_incompetence
+            value = 100
+        }
+
+        # ==========================================
+        # 2. ОБНОВЛЕНИЕ ШАБЛОНОВ (Без знания имен)
+        # ==========================================
+        add_ai_strategy = { type = template_prio id = infantry value = 50 }
+        add_ai_strategy = { type = template_prio id = armor value = 50 }
+        add_ai_strategy = { type = template_prio id = motorized value = 50 }
+
+        # ==========================================
+        # 3. ЛОГИСТИКА И СНАБЖЕНИЕ
+        # ==========================================
+        # Требуем больше транспорта, чтобы ИИ не экономил на логистике
+        add_ai_strategy = { type = min_wanted_supply_trucks value = 3000 }
+        add_ai_strategy = { type = min_wanted_supply_trains value = 150 }
+
+        # Приоритет строительства инфраструктуры (улучшает снабжение)
+        add_ai_strategy = { type = building_target id = infrastructure value = 10 }
+
+        # ==========================================
+        # 4. ТАКТИКА (Котлы и концентрированные удары)
+        # ==========================================
+        # Фокус на Восточную Европу (ID 2 - европейская часть СССР)
+        add_ai_strategy = { type = area_priority id = 2 value = 200 }
+        
+        # Собираем танки в кулак на фронте с Германией для прорывов
+        add_ai_strategy = { type = front_armor_score id = GER value = 50 }
+
+        # ==========================================
+        # 5. АВИАЦИЯ И ПВО
+        # ==========================================
+        # Усиливаем производство истребителей и изучение ПВО
+        add_ai_strategy = { type = unit_ratio id = fighter value = 200 }
+        add_ai_strategy = { type = research_weight_factor id = antiair2 value = 200 }
+
+        # ==========================================
+        # 6. ИСТОРИЧЕСКИЙ БАФФ ПЕХОТЫ (Лыжные батальоны)
+        # ==========================================
+        # Выдаем временную идею, усиливающую пехоту (лыжники, сибиряки)
+        add_timed_idea = {
+            idea = soviet_winter_infantry_bonus
+            days = 90
+        }
+    }
+}

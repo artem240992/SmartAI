@@ -1,0 +1,32 @@
+smart_ai_build_supply_hub = {
+    # Проверяем, что у страны меньше 20 узлов снабжения
+    if = {
+        limit = { num_of_supply_nodes < 20 }
+
+        # Выбираем случайный свой национальный штат
+        random_owned_controlled_state = {
+            limit = {
+                is_core_of = ROOT
+                # В штате нет ни одного узла
+                NOT = { any_province_building_level = { building = supply_node level > 0 } }
+                NOT = { is_island_state = yes }
+                state_population > 100000
+                # Штат должен иметь наземное сообщение со столицей владельца
+                is_in_home_area = yes 
+                
+                # Исключаем штаты, где движок игры запрещает строить узлы
+                NOT = { state = 608 } # Шилин-Гол
+                NOT = { state = 717 } # Ляобэй
+                NOT = { state = 609 } # Алша
+                NOT = { state = 358 } # Истрия
+                NOT = { state = 739 } # Голландия
+                NOT = { state = 364 } # Черногория
+            }
+
+            # Строим узел в случайной подходящей провинции
+            construct_building_in_random_province = {
+                supply_node = 1
+            }
+        }
+    }
+}

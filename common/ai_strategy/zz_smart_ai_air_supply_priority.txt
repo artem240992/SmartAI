@@ -1,0 +1,29 @@
+# Без DLC By Blood Alone
+smart_ai_prioritize_air_supply_base = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_use_air_supply
+        NOT = { has_dlc = "By Blood Alone" }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = unit_ratio id = fighter value = 250 }
+    ai_strategy = { type = research_weight_factor id = early_transport_plane value = 300 }
+    ai_strategy = { type = research_weight_factor id = improved_transport_plane value = 250 }
+}
+
+# С DLC By Blood Alone
+smart_ai_prioritize_air_supply_bba = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_use_air_supply
+        has_dlc = "By Blood Alone"
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = unit_ratio id = fighter value = 250 }
+    ai_strategy = { type = research_weight_factor id = bba_early_transport_plane value = 300 }
+    ai_strategy = { type = research_weight_factor id = bba_improved_transport_plane value = 250 }
+}

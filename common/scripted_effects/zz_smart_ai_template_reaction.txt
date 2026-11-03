@@ -1,0 +1,50 @@
+smart_ai_analyze_player_templates = {
+    clr_country_flag = smart_ai_player_heavy_tanks
+    clr_country_flag = smart_ai_player_light_tanks
+    clr_country_flag = smart_ai_player_infantry_heavy
+    clr_country_flag = smart_ai_player_mechanized
+    clr_country_flag = smart_ai_player_artillery
+    
+    every_enemy_country = {
+        limit = { is_ai = no }
+        
+        # Игрок исследует тяжёлые танки
+        if = {
+            limit = { has_tech = basic_heavy_tank_chassis }
+            ROOT = { set_country_flag = smart_ai_player_heavy_tanks }
+        }
+        
+        # Игрок строит лёгкие танки
+        if = {
+            limit = {
+                has_tech = basic_light_tank_chassis
+                NOT = { has_tech = basic_medium_tank_chassis }
+            }
+            ROOT = { set_country_flag = smart_ai_player_light_tanks }
+        }
+        
+        # Игрок строит много пехоты
+        if = {
+            limit = {
+                num_divisions > 80
+                num_of_military_factories < 100
+            }
+            ROOT = { set_country_flag = smart_ai_player_infantry_heavy }
+        }
+        
+        # Игрок использует механизированную пехоту
+        if = {
+            limit = { has_tech = mechanised_infantry }
+            ROOT = { set_country_flag = smart_ai_player_mechanized }
+        }
+        
+        # Игрок вкладывается в артиллерию
+        if = {
+            limit = {
+                num_of_military_factories > 80
+                has_tech = artillery2
+            }
+            ROOT = { set_country_flag = smart_ai_player_artillery }
+        }
+    }
+}

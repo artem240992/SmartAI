@@ -1,0 +1,57 @@
+# ============================================================
+#  Smart AI: Исторические морские доктрины
+#  Файл: common/ai_strategy/zz_smart_ai_naval_doctrines.txt
+# ============================================================
+
+# ---- ЯПОНИЯ: Авианосцы и торпедные атаки ----
+smart_ai_naval_JAP = {
+    allowed = { original_tag = JAP }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = carrier value = 200 }
+    ai_strategy = { type = role_ratio id = destroyer value = 180 }
+    ai_strategy = { type = role_ratio id = light_cruiser value = 100 }
+    ai_strategy = { type = role_ratio id = submarine value = 80 }
+    ai_strategy = { type = role_ratio id = heavy_cruiser value = 60 }
+
+    ai_strategy = { type = research_weight_factor id = basic_carrier value = 200 }
+    ai_strategy = { type = research_weight_factor id = improved_carrier value = 150 }
+    ai_strategy = { type = research_weight_factor id = naval_bomber1 value = 150 }
+    ai_strategy = { type = research_weight_factor id = cv_naval_bomber1 value = 180 }
+}
+
+# ---- США: Массовые авианосные группы ----
+smart_ai_naval_USA = {
+    allowed = { original_tag = USA }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = carrier value = 250 }
+    ai_strategy = { type = role_ratio id = battleship value = 100 }
+    ai_strategy = { type = role_ratio id = destroyer value = 200 }
+    ai_strategy = { type = role_ratio id = light_cruiser value = 120 }
+    ai_strategy = { type = role_ratio id = submarine value = 100 }
+
+    ai_strategy = { type = research_weight_factor id = basic_carrier value = 250 }
+    ai_strategy = { type = research_weight_factor id = improved_carrier value = 200 }
+    ai_strategy = { type = research_weight_factor id = cv_naval_bomber1 value = 200 }
+}
+
+# ---- БРИТАНИЯ: Линкоры + эскорт ----
+smart_ai_naval_ENG = {
+    allowed = { original_tag = ENG }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = battleship value = 180 }
+    ai_strategy = { type = role_ratio id = heavy_cruiser value = 120 }
+    ai_strategy = { type = role_ratio id = carrier value = 150 }
+    ai_strategy = { type = role_ratio id = destroyer value = 250 }
+    ai_strategy = { type = role_ratio id = light_cruiser value = 150 }
+    ai_strategy = { type = role_ratio id = submarine value = 120 }
+
+    ai_strategy = { type = research_weight_factor id = basic_battleship value = 150 }
+    ai_strategy = { type = research_weight_factor id = basic_destroyer value = 180 }
+    ai_strategy = { type = research_weight_factor id = basic_light_cruiser value = 120 }  # ← исправлено
+}

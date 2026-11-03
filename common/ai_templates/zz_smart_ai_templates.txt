@@ -1,0 +1,143 @@
+smart_ai_infantry = {
+    role = infantry
+    upgrade_prio = { factor = 8 }
+    
+    smart_infantry_default = {
+        upgrade_prio = { factor = 2 }
+        
+        target_template = {
+            support = {
+                engineer = 1
+                recon = 1
+            }
+            regimental_support = {
+                anti_tank_battery = 1
+                fire_support = 1
+            }
+            regiments = {
+                infantry = 6
+                artillery_brigade = 2
+            }
+        }
+        replace_at_match = 0.9
+        replace_with = smart_infantry_improved
+        target_min_match = 0.9
+    }
+    
+    smart_infantry_improved = {
+        upgrade_prio = { factor = 2 }
+        
+        target_template = {
+            support = {
+                engineer = 1
+                recon = 1
+                field_hospital = 1
+            }
+            regimental_support = {
+                anti_tank_battery = 1
+                anti_air_battery = 1
+                fire_support = 1
+            }
+            regiments = {
+                infantry = 6
+                artillery_brigade = 2
+            }
+        }
+    }
+}
+
+smart_ai_armor = {
+    role = armor
+    upgrade_prio = { factor = 2 }
+    
+    smart_armor_light = {
+        upgrade_prio = { factor = 1 }
+        
+        target_template = {
+            support = {
+                engineer = 1
+                mot_recon = 1
+            }
+            regiments = {
+                light_armor = 3
+                motorized = 3
+            }
+        }
+        replace_at_match = 0.9
+        replace_with = smart_armor_medium
+        target_min_match = 0.3
+    }
+    
+    smart_armor_medium = {
+        upgrade_prio = { factor = 1 }
+        
+        target_template = {
+            support = {
+                engineer = 1
+                mot_recon = 1
+                logistics_company = 1
+            }
+            regimental_support = {
+                anti_air_battery = 1
+                anti_tank_battery = 1
+            }
+            regiments = {
+                medium_armor = 4
+                motorized = 6
+                mot_artillery_brigade = 1
+            }
+        }
+        replace_at_match = 0.9
+        replace_with = smart_armor_modern
+        target_min_match = 0.8
+    }
+    
+    smart_armor_modern = {
+        upgrade_prio = { factor = 1 }
+        
+        target_template = {
+            support = {
+                engineer = 1
+                maintenance_company = 1
+                logistics_company = 1
+                light_tank_recon = 1
+            }
+            regimental_support = {
+                mot_fire_support = 2
+            }
+            regiments = {
+                modern_armor = 3
+                mechanized = 3
+                motorized = 3
+                mot_artillery_brigade = 1
+                mot_anti_air_brigade = 1
+            }
+        }
+    }
+}
+
+smart_ai_garrison = {
+    role = garrison
+    upgrade_prio = {
+        base = 0.5
+        modifier = {
+            factor = 20
+            NOT = { ai_has_role_template = garrison }
+        }
+    }
+    
+    smart_garrison_default = {
+        upgrade_prio = { factor = 2 }
+        reinforce_prio = 0
+        custom_icon = 7
+        
+        target_template = {
+            support = {
+                engineer = 1
+            }
+            regiments = {
+                infantry = 6
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+# Реакция на тяжёлые танки игрока
+smart_ai_counter_heavy_tanks = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_player_heavy_tanks
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = armor value = 30 }
+    ai_strategy = { type = role_ratio id = infantry value = 50 }
+    
+    # НОВОЕ: Требуем производить противотанковые бригады (ПТО)
+    # (Если роль anti_tank существует в вашей сборке)
+    ai_strategy = { type = role_ratio id = anti_tank value = 20 }
+    
+    # Приоритет изучения ПТО
+    ai_strategy = { type = research_weight_factor id = antitank1 value = 200 }
+    ai_strategy = { type = research_weight_factor id = antitank2 value = 200 }
+}
+
+# Реакция на лёгкие танки игрока
+smart_ai_counter_light_tanks = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_player_light_tanks
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = armor value = 20 }
+}
+
+# Реакция на пехотную орду игрока
+smart_ai_counter_player_infantry = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_player_infantry_heavy
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = infantry value = 75 }
+    ai_strategy = { type = role_ratio id = armor value = 15 }
+}
+
+# Реакция на механизированную пехоту игрока
+smart_ai_counter_mechanized = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_player_mechanized
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = armor value = 25 }
+}
+
+# Реакция на артиллерию игрока
+smart_ai_counter_artillery = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_country_flag = smart_ai_player_artillery
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = motorized value = 20 }
+}

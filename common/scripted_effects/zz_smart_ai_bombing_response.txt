@@ -1,0 +1,13 @@
+smart_ai_check_bombing_damage = {
+    clr_country_flag = smart_ai_under_air_bombing
+
+    every_owned_state = {
+        limit = {
+            OR = {
+                non_damaged_building_level = { building = infrastructure level < 1 }
+                non_damaged_building_level = { building = arms_factory level < 1 }
+            }
+        }
+        ROOT = { set_country_flag = smart_ai_under_air_bombing }
+    }
+}

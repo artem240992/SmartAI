@@ -1,0 +1,88 @@
+smart_ai_check_season = {
+    clr_country_flag = smart_ai_winter
+    clr_country_flag = smart_ai_summer
+    
+    # ============ ЗИМА (декабрь-февраль) ============
+    if = {
+        limit = { date > 1936.12.1  NOT = { date > 1937.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    if = {
+        limit = { date > 1937.12.1  NOT = { date > 1938.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    if = {
+        limit = { date > 1938.12.1  NOT = { date > 1939.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    if = {
+        limit = { date > 1939.12.1  NOT = { date > 1940.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    if = {
+        limit = { date > 1940.12.1  NOT = { date > 1941.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    if = {
+        limit = { date > 1941.12.1  NOT = { date > 1942.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    if = {
+        limit = { date > 1942.12.1  NOT = { date > 1943.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    if = {
+        limit = { date > 1943.12.1  NOT = { date > 1944.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    if = {
+        limit = { date > 1944.12.1  NOT = { date > 1945.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    if = {
+        limit = { date > 1945.12.1  NOT = { date > 1946.3.1 } }
+        set_country_flag = smart_ai_winter
+    }
+    
+    # ============ ЛЕТО (июнь-август) ============
+    if = {
+        limit = { date > 1936.6.1  NOT = { date > 1936.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+    if = {
+        limit = { date > 1937.6.1  NOT = { date > 1937.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+    if = {
+        limit = { date > 1938.6.1  NOT = { date > 1938.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+    if = {
+        limit = { date > 1939.6.1  NOT = { date > 1939.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+    if = {
+        limit = { date > 1940.6.1  NOT = { date > 1940.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+    if = {
+        limit = { date > 1941.6.1  NOT = { date > 1941.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+    if = {
+        limit = { date > 1942.6.1  NOT = { date > 1942.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+    if = {
+        limit = { date > 1943.6.1  NOT = { date > 1943.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+    if = {
+        limit = { date > 1944.6.1  NOT = { date > 1944.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+    if = {
+        limit = { date > 1945.6.1  NOT = { date > 1945.9.1 } }
+        set_country_flag = smart_ai_summer
+    }
+}

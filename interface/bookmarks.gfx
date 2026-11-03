@@ -1,0 +1,6 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_cold_war_wip"
+        texturefile = "gfx/interface/bookmarks/cold_war_wip.png"
+    }
+}

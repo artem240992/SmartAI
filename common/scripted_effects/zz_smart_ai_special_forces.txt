@@ -1,0 +1,28 @@
+smart_ai_analyze_special_forces = {
+    clr_country_flag = smart_ai_special_forces_ready
+
+    # Проверяем, есть ли технологии и транспорт для десантов
+    if = {
+        limit = {
+            has_tech = paratroopers
+            num_of_military_factories > 30
+        }
+
+        # Проверяем транспортную авиацию в зависимости от DLC
+        if = {
+            limit = { has_dlc = "By Blood Alone" }
+            # С DLC BBA используем технологии BBA
+            if = {
+                limit = { has_tech = bba_early_transport_plane }
+                set_country_flag = smart_ai_special_forces_ready
+            }
+        }
+        else = {
+            # Без DLC BBA используем базовые технологии
+            if = {
+                limit = { has_tech = early_transport_plane }
+                set_country_flag = smart_ai_special_forces_ready
+            }
+        }
+    }
+}

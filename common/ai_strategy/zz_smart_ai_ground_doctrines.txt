@@ -1,0 +1,96 @@
+# ============================================================
+#  Smart AI: Исторические наземные доктрины
+#  Файл: common/ai_strategy/zz_smart_ai_ground_doctrines.txt
+# ============================================================
+
+# ---- ГЕРМАНИЯ: Блицкриг (танки + моторизованная пехота) ----
+smart_ai_ground_GER = {
+    allowed = { original_tag = GER }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = armor value = 30 }
+    ai_strategy = { type = role_ratio id = motorized value = 20 }
+    ai_strategy = { type = role_ratio id = infantry value = 50 }
+    ai_strategy = { type = role_ratio id = cavalry value = 0 }
+}
+
+# ---- СССР: Глубокая операция (массовая пехота + артиллерия) ----
+smart_ai_ground_SOV = {
+    allowed = { original_tag = SOV }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = infantry value = 75 }
+    ai_strategy = { type = role_ratio id = armor value = 15 }
+    ai_strategy = { type = role_ratio id = motorized value = 5 }
+    ai_strategy = { type = role_ratio id = cavalry value = 5 }
+}
+
+# ---- США: Комбинированные силы (баланс) ----
+smart_ai_ground_USA = {
+    allowed = { original_tag = USA }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = infantry value = 60 }
+    ai_strategy = { type = role_ratio id = armor value = 20 }
+    ai_strategy = { type = role_ratio id = motorized value = 20 }
+}
+
+# ---- БРИТАНИЯ: Комбинированные силы (акцент на моторизацию) ----
+smart_ai_ground_ENG = {
+    allowed = { original_tag = ENG }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = infantry value = 55 }
+    ai_strategy = { type = role_ratio id = armor value = 20 }
+    ai_strategy = { type = role_ratio id = motorized value = 25 }
+}
+
+# ---- ЯПОНИЯ: Лёгкая пехота и морские десанты ----
+smart_ai_ground_JAP = {
+    allowed = { original_tag = JAP }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = infantry value = 70 }
+    ai_strategy = { type = role_ratio id = armor value = 10 }
+    ai_strategy = { type = role_ratio id = motorized value = 10 }
+    ai_strategy = { type = role_ratio id = marines value = 10 }
+}
+
+# ---- ИТАЛИЯ: Горные войска и лёгкие танки ----
+smart_ai_ground_ITA = {
+    allowed = { original_tag = ITA }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = infantry value = 65 }
+    ai_strategy = { type = role_ratio id = armor value = 15 }
+    ai_strategy = { type = role_ratio id = mountaineers value = 15 }
+    ai_strategy = { type = role_ratio id = motorized value = 5 }
+}
+
+# ---- ФРАНЦИЯ: Оборона (пехота + артиллерия) ----
+smart_ai_ground_FRA = {
+    allowed = { original_tag = FRA }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = infantry value = 80 }
+    ai_strategy = { type = role_ratio id = armor value = 10 }
+    ai_strategy = { type = role_ratio id = motorized value = 10 }
+}
+
+# ---- КИТАЙ: Массовая пехота ----
+smart_ai_ground_CHI = {
+    allowed = { original_tag = CHI }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = role_ratio id = infantry value = 90 }
+    ai_strategy = { type = role_ratio id = armor value = 5 }
+    ai_strategy = { type = role_ratio id = cavalry value = 5 }
+}

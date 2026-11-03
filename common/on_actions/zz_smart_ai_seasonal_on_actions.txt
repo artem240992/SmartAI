@@ -1,0 +1,111 @@
+on_actions = {
+    on_monthly = {
+        effect = {
+            every_country = {
+                limit = {
+                    has_war = yes
+                }
+
+                # --- ПРОВЕРКА ЗИМЫ ---
+                if = {
+                    limit = {
+                        OR = {
+                            AND = { date > 1939.12.1  date < 1940.3.1 }
+                            AND = { date > 1940.12.1  date < 1941.3.1 }
+                            AND = { date > 1941.12.1  date < 1942.3.1 }
+                            AND = { date > 1942.12.1  date < 1943.3.1 }
+                            AND = { date > 1943.12.1  date < 1944.3.1 }
+                            AND = { date > 1944.12.1  date < 1945.3.1 }
+                        }
+                    }
+                    
+                    if = {
+                        limit = { tag = SOV  NOT = { has_country_flag = smart_ai_soviet_winter_event } }
+                        country_event = { id = zz_smart_ai_seasonal.1 }
+                    }
+                    else_if = {
+                        limit = { tag = GER  NOT = { has_country_flag = smart_ai_german_winter_event } }
+                        country_event = { id = zz_smart_ai_seasonal.2 }
+                    }
+                    else_if = {
+                        limit = { tag = FIN  NOT = { has_country_flag = smart_ai_finnish_winter_event } }
+                        country_event = { id = zz_smart_ai_seasonal.3 }
+                    }
+                    else_if = {
+                        limit = { NOT = { tag = SOV } NOT = { tag = GER } NOT = { tag = FIN } NOT = { has_country_flag = smart_ai_general_winter_event } }
+                        country_event = { id = zz_smart_ai_seasonal.4 }
+                    }
+                }
+
+                # --- ПРОВЕРКА ЛЕТА ---
+                if = {
+                    limit = {
+                        OR = {
+                            AND = { date > 1940.6.1  date < 1940.9.1 }
+                            AND = { date > 1941.6.1  date < 1941.9.1 }
+                            AND = { date > 1942.6.1  date < 1942.9.1 }
+                            AND = { date > 1943.6.1  date < 1943.9.1 }
+                            AND = { date > 1944.6.1  date < 1944.9.1 }
+                            AND = { date > 1945.6.1  date < 1945.9.1 }
+                        }
+                    }
+                    if = {
+                        limit = { tag = ITA  NOT = { has_country_flag = smart_ai_italian_summer_event } }
+                        country_event = { id = zz_smart_ai_seasonal.5 }
+                    }
+                    else_if = {
+                        limit = { tag = GER  NOT = { has_country_flag = smart_ai_german_summer_event } }
+                        country_event = { id = zz_smart_ai_seasonal.6 }
+                    }
+                    else_if = {
+                        limit = { tag = JAP  NOT = { has_country_flag = smart_ai_japanese_summer_event } }
+                        country_event = { id = zz_smart_ai_seasonal.7 }
+                    }
+                    else_if = {
+                        limit = { tag = SOV } # СССР пропускает летний ивент
+                    }
+                    else_if = {
+                        limit = { NOT = { has_country_flag = smart_ai_general_summer_event } }
+                        country_event = { id = zz_smart_ai_seasonal.8 }
+                    }
+                }
+
+                # --- ПРОВЕРКА ОСЕНИ (Октябрь-Ноябрь) ТОЛЬКО ПРИ ВОЙНЕ С СССР ---
+                if = {
+                    limit = {
+                        tag = GER
+                        has_war_with = SOV # <-- ДОБАВЛЕНО УСЛОВИЕ
+                        OR = {
+                            AND = { date > 1939.10.1  date < 1939.12.1 }
+                            AND = { date > 1940.10.1  date < 1940.12.1 }
+                            AND = { date > 1941.10.1  date < 1941.12.1 }
+                            AND = { date > 1942.10.1  date < 1942.12.1 }
+                            AND = { date > 1943.10.1  date < 1943.12.1 }
+                            AND = { date > 1944.10.1  date < 1944.12.1 }
+                        }
+                        NOT = { has_country_flag = smart_ai_german_autumn_event }
+                    }
+                    country_event = { id = zz_smart_ai_seasonal.9 }
+                }
+
+                # --- ПРОВЕРКА ВЕСНЫ (Март-Апрель) ТОЛЬКО ПРИ ВОЙНЕ С СССР ---
+                if = {
+                    limit = {
+                        tag = GER
+                        has_war_with = SOV # <-- ДОБАВЛЕНО УСЛОВИЕ
+                        OR = {
+                            AND = { date > 1940.3.1  date < 1940.5.1 }
+                            AND = { date > 1941.3.1  date < 1941.5.1 }
+                            AND = { date > 1942.3.1  date < 1942.5.1 }
+                            AND = { date > 1943.3.1  date < 1943.5.1 }
+                            AND = { date > 1944.3.1  date < 1944.5.1 }
+                            AND = { date > 1945.3.1  date < 1945.5.1 }
+                        }
+                        NOT = { has_country_flag = smart_ai_german_spring_event }
+                    }
+                    country_event = { id = zz_smart_ai_seasonal.10 }
+                }
+            }
+        }
+    }
+}

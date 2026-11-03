@@ -1,0 +1,18 @@
+# Заставляем ИИ строить узлы снабжения, если их количество ниже порога
+smart_ai_build_supply_nodes = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        # Активируем стратегию только во время войны
+        has_war = yes
+    }
+    abort_when_not_enabled = yes
+
+    # Держим минимум в 15 узлов снабжения.
+    # ИИ будет строить их, если общее количество меньше этого значения.
+    ai_strategy = {
+        type = building_target
+        id = supply_node
+        value = 15
+    }
+}
