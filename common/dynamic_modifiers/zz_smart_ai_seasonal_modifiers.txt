@@ -1,6 +1,6 @@
-### ЗИМНИЕ МОДИФИКАТОРЫ ###
+# SmartAI — сезонные динамические модификаторы
+# ВНИМАНИЕ: в common/dynamic_modifiers/ обёртка modifier = { } НЕ используется.
 
-# Суровая зима (общий дебафф для неподготовленных армий)
 harsh_winter = {
     icon = GFX_idea_winter
     enable = { always = yes }
@@ -9,7 +9,6 @@ harsh_winter = {
     winter_attrition_factor = 0.20
 }
 
-# Русская зима (бонус для СССР)
 russian_winter_bonus = {
     icon = GFX_idea_soviet_winter
     enable = { always = yes }
@@ -18,7 +17,6 @@ russian_winter_bonus = {
     army_speed_factor = -0.10
 }
 
-# Финское мастерство (бонус для Финляндии)
 finnish_winter_bonus = {
     icon = GFX_idea_finland_winter
     enable = { always = yes }
@@ -27,40 +25,36 @@ finnish_winter_bonus = {
     winter_attrition_factor = -0.30
 }
 
-# Зимний дебафф для Германии
+# --- УСИЛЕННЫЙ зимний дебафф для Германии и её союзников ---
 german_winter_debuff = {
     icon = GFX_idea_winter
     enable = { always = yes }
-    army_attack_factor = -0.59
-    army_defence_factor = -0.49
-    winter_attrition_factor = 0.30
-    attrition = 0.02
-    supply_consumption_factor = 0.25
+    army_attack_factor = -0.70
+    army_defence_factor = -0.60
+    army_speed_factor = -0.20
+    winter_attrition_factor = 0.35
+    attrition = 0.03
+    supply_consumption_factor = 0.30
 }
 
-### НОВЫЕ СЕЗОННЫЕ МОДИФИКАТОРЫ ДЛЯ ГЕРМАНИИ ###
-
-# Осенняя распутица (октябрь-ноябрь)
+# --- УСИЛЕННАЯ осенняя распутица (для Германии) ---
 german_autumn_speed_penalty = {
     icon = GFX_idea_winter
     enable = { always = yes }
-    army_speed_factor = -0.8
-    modifier_army_sub_unit_infantry_speed_factor = 0.8
-    modifier_army_sub_unit_cavalry_speed_factor = 0.8
+    army_speed_factor = -0.90
+    modifier_army_sub_unit_infantry_speed_factor = 0.90
+    modifier_army_sub_unit_cavalry_speed_factor = 0.90
 }
 
-# Весенняя распутица (март-апрель)
+# --- УСИЛЕННАЯ весенняя распутица (для Германии) ---
 german_spring_speed_penalty = {
     icon = GFX_idea_winter
     enable = { always = yes }
-    army_speed_factor = -0.9
-    modifier_army_sub_unit_infantry_speed_factor = 0.8
-    modifier_army_sub_unit_cavalry_speed_factor = 0.8
+    army_speed_factor = -0.95
+    modifier_army_sub_unit_infantry_speed_factor = 0.90
+    modifier_army_sub_unit_cavalry_speed_factor = 0.90
 }
 
-### ЛЕТНИЕ МОДИФИКАТОРЫ ###
-
-# Африканская жара (дебафф для европейских армий)
 african_heat = {
     icon = GFX_idea_desert
     enable = { always = yes }
@@ -69,7 +63,6 @@ african_heat = {
     army_attack_factor = -0.10
 }
 
-# Пустынное мастерство (бонус для Италии в Африке)
 italian_desert_bonus = {
     icon = GFX_idea_italy_desert
     enable = { always = yes }
@@ -78,7 +71,16 @@ italian_desert_bonus = {
     army_attack_factor = 0.10
 }
 
-# Муссоны (дебафф для Японии в Азии)
+# Именно это имя использует событие zz_smart_ai_seasonal.7
+japanese_monsoon_bonus = {
+    icon = GFX_idea_monsoon
+    enable = { always = yes }
+    army_speed_factor = -0.25
+    army_attack_factor = -0.15
+    supply_consumption_factor = 0.15
+}
+
+# Оставляем и старое имя на случай других ссылок
 monsoon_debuff = {
     icon = GFX_idea_monsoon
     enable = { always = yes }
@@ -87,9 +89,6 @@ monsoon_debuff = {
     supply_consumption_factor = 0.15
 }
 
-### БОНУС ЗА ПОДГОТОВКУ ###
-
-# Усиленное зимнее снабжение
 winter_logistics_bonus = {
     icon = GFX_idea_logistics
     enable = { always = yes }
