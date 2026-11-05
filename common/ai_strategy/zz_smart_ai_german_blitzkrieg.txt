@@ -8,7 +8,6 @@ smart_ai_german_blitzkrieg_offensive = {
     enable = {
         is_ai = yes
         has_war = yes
-        # Активируется в войне против СССР или крупных стран
         OR = {
             has_war_with = SOV
             has_war_with = FRA
@@ -17,11 +16,9 @@ smart_ai_german_blitzkrieg_offensive = {
     }
     abort_when_not_enabled = yes
 
-    # 1. Агрессивное выполнение приказов (Рывок)
-    # Заставляет ИИ не ждать полной подготовки, а ломиться вперед.
     ai_strategy = {
         type = front_control
-        tag = SOV # Можно заменить на любого врага или убрать для всех фронтов
+        tag = SOV
         priority = 150
         ordertype = front
         execution_type = rush
@@ -29,17 +26,30 @@ smart_ai_german_blitzkrieg_offensive = {
         manual_attack = yes
     }
 
-    # 2. Концентрация танков на фронте (Кулак)
-    # Заставляет ИИ собирать бронетанковые дивизии в одном месте для прорыва.
     ai_strategy = {
         type = front_armor_score
         id = SOV
-        value = 100 # Максимальная концентрация танков на этом фронте
+        value = 100
     }
 
-    # 3. Соотношение ролей для блицкрига
-    # Больше танков и моторизованной пехоты для мобильной войны.
-    ai_strategy = { type = role_ratio id = armor value = 35 } # 35% танков
-    ai_strategy = { type = role_ratio id = motorized value = 25 } # 25% мотопехоты
+    ai_strategy = { type = role_ratio id = armor value = 35 }
+    ai_strategy = { type = role_ratio id = motorized value = 25 }
     ai_strategy = { type = role_ratio id = infantry value = 40 }
+}
+
+# ============================================================
+#  Исследование поддержек для шаблонов Вермахта
+# ============================================================
+
+smart_ai_german_support_research = {
+    allowed = { original_tag = GER }
+    enable = { is_ai = yes }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = research_weight_factor id = tech_logistics_company value = 300 }
+    ai_strategy = { type = research_weight_factor id = tech_field_hospital value = 250 }
+    ai_strategy = { type = research_weight_factor id = tech_recon value = 200 }
+    ai_strategy = { type = research_weight_factor id = tech_engineers value = 150 }
+    ai_strategy = { type = research_weight_factor id = tech_maintenance_company value = 200 }
+    ai_strategy = { type = research_weight_factor id = support_weapons value = 200 }
 }

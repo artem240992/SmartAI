@@ -55,10 +55,32 @@ soviet_winter_counterattack_effect = {
         # ==========================================
         # 6. ИСТОРИЧЕСКИЙ БАФФ ПЕХОТЫ (Лыжные батальоны)
         # ==========================================
-        # Выдаем временную идею, усиливающую пехоту (лыжники, сибиряки)
         add_timed_idea = {
             idea = soviet_winter_infantry_bonus
             days = 90
+        }
+    }
+
+    # ============================================================
+    # ДОБАВЛЕНО: ГЕРМАНИЯ (Обновление шаблонов и оборона)
+    # ============================================================
+    GER = {
+        # 1. Приоритет обновления шаблонов
+        # Заставляем Германию перевооружаться, несмотря на зимний дебафф
+        add_ai_strategy = { type = template_prio id = infantry value = 50 }
+        add_ai_strategy = { type = template_prio id = armor value = 50 }
+        add_ai_strategy = { type = template_prio id = motorized value = 50 }
+
+        # 2. Осторожная оборона на Восточном фронте
+        # Немцы должны окопаться и пережить зиму, а не бежать вперед
+        add_ai_strategy = {
+            type = front_control
+            tag = SOV
+            priority = 20
+            ordertype = front
+            execution_type = careful
+            execute_order = yes
+            manual_attack = no # Запрещаем ИИ Германии контратаковать в распутицу
         }
     }
 }

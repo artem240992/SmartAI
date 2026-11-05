@@ -1,6 +1,6 @@
 name="Smart AI + Performance"
 picture="thumbnail.jpg"
-version="v5"
+version="v5.5"
 tags={
 	"Gameplay"
 	"Balance"

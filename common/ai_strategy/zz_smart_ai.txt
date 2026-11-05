@@ -11,7 +11,7 @@ smart_ai_global_priorities = {
     }
     ai_strategy = {
         type = pp_spend_priority
-        id = military_advisor
+        id = army_chief
         value = 30
     }
     ai_strategy = {
@@ -33,7 +33,6 @@ smart_ai_division_roles = {
     enable = { is_ai = yes }
     abort_when_not_enabled = yes
     
-    # Улучшенные приоритеты ролей дивизий
     ai_strategy = {
         type = role_ratio
         id = infantry

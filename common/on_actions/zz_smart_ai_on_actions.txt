@@ -1,23 +1,152 @@
 on_actions = {
     on_monthly = {
         effect = {
+            
+            # ============================================================
+            # БЛОК 1: Сезонные события (Для ВСЕХ: ИИ, Игрок, Мультиплеер)
+            # ============================================================
             every_country = {
-                limit = {
-                    is_ai = yes
+                limit = { has_war = yes }
+
+                # -------- ОСЕНЬ (Германия и её союзники) --------
+                if = {
+                    limit = {
+                        OR = {
+                            tag = GER
+                            AND = {
+                                is_in_faction_with = GER
+                                NOT = { tag = FIN }
+                            }
+                        }
+                        has_war_with = SOV
+                        OR = {
+                            AND = { date > 1939.10.1  date < 1939.12.1 }
+                            AND = { date > 1940.10.1  date < 1940.12.1 }
+                            AND = { date > 1941.10.1  date < 1941.12.1 }
+                            AND = { date > 1942.10.1  date < 1942.12.1 }
+                            AND = { date > 1943.10.1  date < 1943.12.1 }
+                            AND = { date > 1944.10.1  date < 1944.12.1 }
+                        }
+                        NOT = { has_dynamic_modifier = { modifier = german_autumn_speed_penalty } }
+                    }
+                    country_event = { id = zz_smart_ai_seasonal.9 }
                 }
 
-                # Подготовка логистики СССР перед Финской войной 
-                smart_ai_prepare_finland_logistics = yes
+                # -------- ВЕСНА (Германия и её союзники) --------
+                if = {
+                    limit = {
+                        OR = {
+                            tag = GER
+                            AND = {
+                                is_in_faction_with = GER
+                                NOT = { tag = FIN }
+                            }
+                        }
+                        has_war_with = SOV
+                        OR = {
+                            AND = { date > 1940.3.1  date < 1940.5.1 }
+                            AND = { date > 1941.3.1  date < 1941.5.1 }
+                            AND = { date > 1942.3.1  date < 1942.5.1 }
+                            AND = { date > 1943.3.1  date < 1943.5.1 }
+                            AND = { date > 1944.3.1  date < 1944.5.1 }
+                            AND = { date > 1945.3.1  date < 1945.5.1 }
+                        }
+                        NOT = { has_dynamic_modifier = { modifier = german_spring_speed_penalty } }
+                    }
+                    country_event = { id = zz_smart_ai_seasonal.10 }
+                }
 
-                # Блок боевых действий (только если страна воюет)
+                # -------- ЗИМА (Для всех) --------
+                if = {
+                    limit = {
+                        OR = {
+                            AND = { date > 1939.12.1  date < 1940.3.1 }
+                            AND = { date > 1940.12.1  date < 1941.3.1 }
+                            AND = { date > 1941.12.1  date < 1942.3.1 }
+                            AND = { date > 1942.12.1  date < 1943.3.1 }
+                            AND = { date > 1943.12.1  date < 1944.3.1 }
+                            AND = { date > 1944.12.1  date < 1945.3.1 }
+                        }
+                    }
+                    if = {
+                        limit = { tag = SOV  NOT = { has_dynamic_modifier = { modifier = russian_winter_bonus } } }
+                        country_event = { id = zz_smart_ai_seasonal.1 }
+                    }
+                    else_if = {
+                        limit = {
+                            OR = {
+                                tag = GER
+                                AND = {
+                                    is_in_faction_with = GER
+                                    NOT = { tag = FIN }
+                                }
+                            }
+                            has_war_with = SOV
+                            NOT = { has_dynamic_modifier = { modifier = german_winter_debuff } }
+                        }
+                        country_event = { id = zz_smart_ai_seasonal.2 }
+                    }
+                    else_if = {
+                        limit = { tag = FIN  NOT = { has_dynamic_modifier = { modifier = finnish_winter_bonus } } }
+                        country_event = { id = zz_smart_ai_seasonal.3 }
+                    }
+                    else_if = {
+                        limit = {
+                            NOT = { tag = SOV }
+                            NOT = { tag = GER }
+                            NOT = { tag = FIN }
+                            NOT = { is_in_faction_with = GER }
+                            NOT = { has_dynamic_modifier = { modifier = harsh_winter } }
+                        }
+                        country_event = { id = zz_smart_ai_seasonal.4 }
+                    }
+                }
+
+                # -------- ЛЕТО (Для всех) --------
+                if = {
+                    limit = {
+                        OR = {
+                            AND = { date > 1940.6.1  date < 1940.9.1 }
+                            AND = { date > 1941.6.1  date < 1941.9.1 }
+                            AND = { date > 1942.6.1  date < 1942.9.1 }
+                            AND = { date > 1943.6.1  date < 1943.9.1 }
+                            AND = { date > 1944.6.1  date < 1944.9.1 }
+                            AND = { date > 1945.6.1  date < 1945.9.1 }
+                        }
+                    }
+                    if = {
+                        limit = { tag = ITA  NOT = { has_dynamic_modifier = { modifier = italian_desert_bonus } } }
+                        country_event = { id = zz_smart_ai_seasonal.5 }
+                    }
+                    else_if = {
+                        limit = { tag = JAP  NOT = { has_dynamic_modifier = { modifier = monsoon_debuff } } }
+                        country_event = { id = zz_smart_ai_seasonal.7 }
+                    }
+                    else_if = {
+                        limit = { tag = SOV }
+                    }
+                    else_if = {
+                        limit = { NOT = { has_dynamic_modifier = { modifier = african_heat } } }
+                        country_event = { id = zz_smart_ai_seasonal.8 }
+                    }
+                }
+            }
+
+            # ============================================================
+            # БЛОК 2: ИИ-логистика и Контрнаступление (ТОЛЬКО ДЛЯ ИИ)
+            # ============================================================
+            every_country = {
+                limit = { is_ai = yes }
+
+                smart_ai_prepare_finland_logistics = yes
+                
                 if = {
                     limit = { has_war = yes }
-                    
                     smart_ai_check_season = yes
                     smart_ai_check_bombing_damage = yes
                     smart_ai_manage_air_supply = yes
 
-                    # Раз в 6 месяцев строим узел снабжения
+                    # Узлы снабжения
                     if = {
                         limit = { NOT = { has_variable = smart_ai_supply_hub_timer } }
                         set_variable = { smart_ai_supply_hub_timer = 6 }
@@ -29,27 +158,22 @@ on_actions = {
                         set_variable = { smart_ai_supply_hub_timer = 6 }
                     }
 
-                    # Контратака СССР при зимнем дебаффе Германии
+                    # Контрнаступление СССР (Только если СССР управляет ИИ)
                     if = {
                         limit = {
                             tag = SOV
                             has_war_with = GER
-                            # Проверяем, что у Германии висит зимний дебафф
                             GER = { has_dynamic_modifier = { modifier = german_winter_debuff } }
                             NOT = { has_idea = soviet_winter_counterattack_idea }
                         }
-                        add_timed_idea = {
-                            idea = soviet_winter_counterattack_idea
-                            days = 90
-                        }
-                        # ВЫЗОВ СКРИПТОВОГО ЭФФЕКТА (AI-приказы, логистика, шаблоны)
+                        add_timed_idea = { idea = soviet_winter_counterattack_idea days = 100 }
                         soviet_winter_counterattack_effect = yes
                     }
                 }
             }
         }
     }
-    
+
     on_quarterly = {
         effect = {
             every_country = {

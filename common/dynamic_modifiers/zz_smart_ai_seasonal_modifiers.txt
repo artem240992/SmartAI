@@ -4,8 +4,8 @@
 harsh_winter = {
     icon = GFX_idea_winter
     enable = { always = yes }
-    army_speed_factor = -0.15
-    army_attack_factor = -0.10
+    army_speed_factor = -0.35
+    army_attack_factor = -0.35
     winter_attrition_factor = 0.20
 }
 
@@ -31,8 +31,8 @@ finnish_winter_bonus = {
 german_winter_debuff = {
     icon = GFX_idea_winter
     enable = { always = yes }
-    army_attack_factor = -0.15
-    army_defence_factor = -0.10
+    army_attack_factor = -0.59
+    army_defence_factor = -0.49
     winter_attrition_factor = 0.30
     attrition = 0.02
     supply_consumption_factor = 0.25
@@ -44,11 +44,7 @@ german_winter_debuff = {
 german_autumn_speed_penalty = {
     icon = GFX_idea_winter
     enable = { always = yes }
-
-    # 1. Замедляем все наземные войска на 80%
     army_speed_factor = -0.8
-
-    # 2. Возвращаем скорость пехоте и кавалерии, чтобы распутица била только по технике
     modifier_army_sub_unit_infantry_speed_factor = 0.8
     modifier_army_sub_unit_cavalry_speed_factor = 0.8
 }
@@ -57,8 +53,7 @@ german_autumn_speed_penalty = {
 german_spring_speed_penalty = {
     icon = GFX_idea_winter
     enable = { always = yes }
-
-    army_speed_factor = -0.8
+    army_speed_factor = -0.9
     modifier_army_sub_unit_infantry_speed_factor = 0.8
     modifier_army_sub_unit_cavalry_speed_factor = 0.8
 }
