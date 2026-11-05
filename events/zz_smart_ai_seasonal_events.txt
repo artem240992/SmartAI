@@ -146,3 +146,22 @@ country_event = {
         name = zz_smart_ai_seasonal.7.a
     }
 }
+
+country_event = {
+    id = zz_smart_ai_seasonal.8
+    title = zz_smart_ai_seasonal.8.t
+    desc = zz_smart_ai_seasonal.8.d
+    picture = GFX_report_event_generic_summer
+    is_triggered_only = yes
+    trigger = {
+        NOT = { tag = ITA }
+        NOT = { tag = JAP }
+        NOT = { tag = SOV }
+        NOT = { has_country_flag = smart_ai_general_summer_event }
+    }
+    immediate = {
+        add_dynamic_modifier = { modifier = general_summer_bonus days = 90 }
+        set_country_flag = smart_ai_general_summer_event
+    }
+    option = { name = zz_smart_ai_seasonal.8.a }
+}

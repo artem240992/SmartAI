@@ -38,21 +38,20 @@ german_winter_debuff = {
 }
 
 # --- УСИЛЕННАЯ осенняя распутица (для Германии) ---
+# ИСПРАВЛЕНО: положительные sub_unit_speed_factor компенсировали штраф.
+# Убраны, чтобы army_speed_factor = -0.90 реально замедлял войска.
 german_autumn_speed_penalty = {
     icon = GFX_idea_winter
     enable = { always = yes }
     army_speed_factor = -0.90
-    modifier_army_sub_unit_infantry_speed_factor = 0.90
-    modifier_army_sub_unit_cavalry_speed_factor = 0.90
 }
 
 # --- УСИЛЕННАЯ весенняя распутица (для Германии) ---
+# ИСПРАВЛЕНО: аналогично осенней распутице.
 german_spring_speed_penalty = {
     icon = GFX_idea_winter
     enable = { always = yes }
     army_speed_factor = -0.95
-    modifier_army_sub_unit_infantry_speed_factor = 0.90
-    modifier_army_sub_unit_cavalry_speed_factor = 0.90
 }
 
 african_heat = {
@@ -94,4 +93,16 @@ winter_logistics_bonus = {
     enable = { always = yes }
     winter_attrition_factor = -0.20
     supply_consumption_factor = -0.10
+}
+
+# --- ДОБАВЛЕНО: модификатор для события zz_smart_ai_seasonal.8 ---
+# Именно его не хватало, из-за чего в логе была ошибка
+# "add_dynamic_modifier Invalid dynamic modifier general_summer_bonus".
+# Эффекты можно изменить под свой баланс.
+general_summer_bonus = {
+    icon = GFX_idea_desert
+    enable = { always = yes }
+    army_speed_factor = 0.05
+    army_attack_factor = 0.05
+    heat_attrition_factor = 0.10
 }
