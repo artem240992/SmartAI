@@ -21,7 +21,7 @@ country_event = {
     }
 }
 
-# Германия и её союзники: «Русская зима»
+# Германия и её союзники: «Русская зима» (кроме Финляндии)
 country_event = {
     id = zz_smart_ai_seasonal.2
     title = zz_smart_ai_seasonal.2.t
@@ -30,6 +30,7 @@ country_event = {
     is_triggered_only = yes
     trigger = {
         has_war_with = SOV
+        NOT = { tag = FIN }
         OR = {
             tag = GER
             is_in_faction_with = GER
@@ -138,7 +139,7 @@ country_event = {
     }
     immediate = {
         add_dynamic_modifier = {
-            modifier = japanese_monsoon_bonus
+            modifier = monsoon_debuff
             days = 90
         }
     }
@@ -164,4 +165,44 @@ country_event = {
         set_country_flag = smart_ai_general_summer_event
     }
     option = { name = zz_smart_ai_seasonal.8.a }
+}
+
+# --- ОСЕНЬ (для Германии и её союзников, кроме Финляндии) ---
+country_event = {
+    id = zz_smart_ai_seasonal.9
+    title = zz_smart_ai_seasonal.9.t
+    desc = zz_smart_ai_seasonal.9.d
+    picture = GFX_report_event_german_autumn
+    is_triggered_only = yes
+    trigger = {
+        NOT = { tag = FIN }
+        OR = {
+            tag = GER
+            is_in_faction_with = GER
+        }
+    }
+    immediate = {
+        add_dynamic_modifier = { modifier = german_autumn_speed_penalty days = 60 }
+    }
+    option = { name = zz_smart_ai_seasonal.9.a }
+}
+
+# --- ВЕСНА (для Германии и её союзников, кроме Финляндии) ---
+country_event = {
+    id = zz_smart_ai_seasonal.10
+    title = zz_smart_ai_seasonal.10.t
+    desc = zz_smart_ai_seasonal.10.d
+    picture = GFX_report_event_german_spring
+    is_triggered_only = yes
+    trigger = {
+        NOT = { tag = FIN }
+        OR = {
+            tag = GER
+            is_in_faction_with = GER
+        }
+    }
+    immediate = {
+        add_dynamic_modifier = { modifier = german_spring_speed_penalty days = 60 }
+    }
+    option = { name = zz_smart_ai_seasonal.10.a }
 }
