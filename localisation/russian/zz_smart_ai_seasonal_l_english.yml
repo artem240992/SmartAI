@@ -1,0 +1,91 @@
+﻿l_english:
+ # ============================================================
+ # EVENTS
+ # ============================================================
+ zz_smart_ai_seasonal.1.t: "General Frost"
+ zz_smart_ai_seasonal.1.d: "The harsh Russian winter has always been our ally. Our soldiers are used to the cold, and their spirit cannot be broken by frost."
+ zz_smart_ai_seasonal.1.a: "Our soldiers are used to the cold"
+
+ zz_smart_ai_seasonal.2.t: "Russian Winter"
+ zz_smart_ai_seasonal.2.d: "We were not prepared for the harsh Russian winter. Frost shackles our troops, equipment fails, and supply lines are disrupted."
+ zz_smart_ai_seasonal.2.a: "The winter will be harsh"
+
+ zz_smart_ai_seasonal.3.t: "Sisu"
+ zz_smart_ai_seasonal.3.d: "Finnish soldiers are masters of winter warfare. Snow and frost are our allies, not enemies."
+ zz_smart_ai_seasonal.3.a: "Sisu is not just a word"
+
+ zz_smart_ai_seasonal.4.t: "Winter is Coming"
+ zz_smart_ai_seasonal.4.d: "Cold weather has arrived at the front. Our troops are forced to fight in harsh weather conditions."
+ zz_smart_ai_seasonal.4.a: "Winter is coming"
+
+ zz_smart_ai_seasonal.5.t: "African Heat"
+ zz_smart_ai_seasonal.5.d: "Italian soldiers are used to the scorching African sun. The desert is our element."
+ zz_smart_ai_seasonal.5.a: "Our soldiers know how to fight in the desert"
+
+ zz_smart_ai_seasonal.7.t: "Monsoons"
+ zz_smart_ai_seasonal.7.d: "The rainy season has turned roads into swamps. The offensive is slowing down, and supplies are becoming increasingly difficult."
+ zz_smart_ai_seasonal.7.a: "The rains are slowing down the offensive"
+
+ zz_smart_ai_seasonal.8.t: "Summer Campaign"
+ zz_smart_ai_seasonal.8.d: "The summer heat tests the resilience of our troops. But we will continue the fight."
+ zz_smart_ai_seasonal.8.a: "The summer campaign continues"
+
+ zz_smart_ai_seasonal.9.t: "Autumn Rasputitsa"
+ zz_smart_ai_seasonal.9.d: "Rain has turned the roads into swamps. Our tanks and motorized units are getting stuck in the mud, and the pace of the offensive is dropping sharply."
+ zz_smart_ai_seasonal.9.a: "The mud is slowing us down"
+
+ zz_smart_ai_seasonal.10.t: "Spring Rasputitsa"
+ zz_smart_ai_seasonal.10.d: "Melting snow and spring rains have made the roads impassable. Armored and motorized troops are forced to slow down."
+ zz_smart_ai_seasonal.10.a: "The roads have turned to mud"
+
+ # ============================================================
+ # IDEAS (Scripted Effects)
+ # ============================================================
+ soviet_winter_counterattack: "Winter Counter-Offensive"
+ soviet_winter_counterattack_desc: "Soviet troops are using the harsh winter to counter-attack the German invaders."
+
+ # Keys for the idea ID used in event zz_smart_ai_seasonal.2
+ soviet_winter_counterattack_idea: "Winter Counter-Offensive"
+ soviet_winter_counterattack_idea_desc: "Soviet troops are using the harsh winter to counter-attack the German invaders."
+
+ soviet_winter_infantry_bonus: "Winter Infantry"
+ soviet_winter_infantry_bonus_desc: "Ski battalions and Siberian divisions trained in snow warfare gain an advantage in movement and breaking through defenses."
+
+ soviet_winter_war_bonus: "Winter War Bonus"
+ soviet_winter_war_bonus_desc: "The experience gained during the Winter War allows our troops to operate more effectively in difficult winter conditions."
+
+ # ============================================================
+ # DYNAMIC MODIFIERS (Weather and Effects)
+ # ============================================================
+ russian_winter_bonus: "Russian Winter"
+ russian_winter_bonus_desc: "Our soldiers are used to severe frosts. Winter is our ally."
+
+ german_winter_debuff: "Russian Winter"
+ german_winter_debuff_desc: "Frost shackles our troops, equipment fails, and supply lines are disrupted. We were not prepared for such a winter."
+
+ finnish_winter_bonus: "Sisu"
+ finnish_winter_bonus_desc: "Finnish soldiers are masters of winter warfare. Snow and frost help us fight."
+
+ harsh_winter: "Harsh Winter"
+ harsh_winter_desc: "Cold weather has arrived at the front. Our troops are forced to fight in harsh weather conditions."
+
+ german_autumn_speed_penalty: "Autumn Rasputitsa"
+ german_autumn_speed_penalty_desc: "Rain has turned the roads into swamps. Tanks and motorized units are getting stuck in the mud, and the pace of the offensive is dropping sharply."
+
+ german_spring_speed_penalty: "Spring Rasputitsa"
+ german_spring_speed_penalty_desc: "Melting snow and spring rains have made the roads impassable. Armored and motorized troops are forced to slow down."
+
+ african_heat: "African Heat"
+ african_heat_desc: "The scorching sun exhausts our troops. Equipment overheats, and soldiers suffer from dehydration."
+
+ italian_desert_bonus: "Desert Mastery"
+ italian_desert_bonus_desc: "Italian soldiers are used to the heat and sand. The desert is our element."
+
+ monsoon_debuff: "Monsoons"
+ monsoon_debuff_desc: "The rainy season has turned roads into swamps. The offensive is slowing down, and supplies are difficult."
+
+ general_summer_bonus: "Summer Campaign"
+ general_summer_bonus_desc: "The summer heat tests the resilience of our troops. But we will continue the fight."
+
+ soviet_iran_war_preparation: "Preparation for War with Iran"
+ soviet_iran_war_preparation_desc: "The USSR is conducting a large-scale preparation for the campaign in the south: troops are replenishing supplies, establishing logistics, and increasing combat readiness."

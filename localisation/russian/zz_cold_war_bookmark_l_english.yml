@@ -1,0 +1,8 @@
+﻿l_english:
+ COLD_WAR_BOOKMARK_NAME: "January 1, 1946 (WORK IN PROGRESS)"
+ COLD_WAR_BOOKMARK_DESC: "This scenario is a work in progress. We are actively working on the history, borders, and new mechanics. A storm is coming.\n\nDark times are approaching. In Europe, Hitler has consolidated his power, and his attention is increasingly drawn to the countries neighboring Germany. Italy under Mussolini is embarking on risky military adventures, while in Asia the Japanese Empire is already poised to attack China. Almost 20 years have passed since the end of the World War, and the world again smells of gasoline fumes. One spark might be enough."
+ 
+ # Country Icons (if needed)
+ COLD_WAR_USA_HISTORY: "USA — leader of the Western world..."
+ COLD_WAR_SOV_HISTORY: "USSR — bulwark of communism..."
+ COLD_WAR_OTHER_HISTORY: "Other countries..."
