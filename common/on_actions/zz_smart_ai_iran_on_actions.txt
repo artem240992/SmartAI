@@ -1,0 +1,56 @@
+on_actions = {
+    on_daily = {
+        effect = {
+            if = {
+                limit = {
+                    tag = SOV
+                    has_completed_focus = SOV_preemptive_invasion_of_iran
+                    NOT = { has_country_flag = SOV_iran_preparation_applied }
+                }
+                
+                # 1. Временная идея (180 дней)
+                add_timed_idea = {
+                    idea = soviet_iran_war_preparation
+                    days = 180
+                }
+
+                # 2. Пополнение складов (исправлены типы снаряжения)
+				add_equipment_to_stockpile = { type = motorized_equipment_1  amount = 5000 }
+				add_equipment_to_stockpile = { type = train_equipment_1  amount = 50   }
+				add_equipment_to_stockpile = { type = infantry_equipment amount = 10000 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = 2000 }
+
+				# 3. Поднятие организации дивизий (исправлен эффект и итератор)
+				every_country_division = {
+					set_unit_organization = 0.7
+				}
+
+                # 4. Строительство Supply Hub (исправлен триггер проверки)
+                every_controlled_state = {
+                    limit = {
+                        OR = {
+                            state = 692   # Замените на реальный ID штата
+                            state = 691   # Замените на реальный ID штата
+                        }
+                        supply_node < 1   # Проверка отсутствия узла снабжения
+                    }
+                    add_building_construction = {
+                        type = supply_node
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+
+                # 5. Приказ ИИ на агрессию (исправлен тег страны)
+                add_ai_strategy = {
+                    type = conquer
+                    id = PER
+                    value = 300
+                }
+
+                # 6. Флаг, чтобы эффекты не срабатывали повторно
+                set_country_flag = SOV_iran_preparation_applied
+            }
+        }
+    }
+}

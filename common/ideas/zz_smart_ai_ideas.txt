@@ -1,28 +1,18 @@
-# common/ideas/zz_smart_ai_ideas.txt
-
 ideas = {
-    # Идея для подготовки к войне с Ираном
-    soviet_iran_war_preparation = {
-        name = "soviet_iran_war_preparation"          # Локализация: название
-        desc = "soviet_iran_war_preparation_desc"      # Локализация: описание
-        
-        allowed = {
-            original_tag = SOV
+    country = {
+        soviet_iran_war_preparation = {
+            allowed = {
+                original_tag = SOV
+            }
+            
+            modifier = {
+                army_org_factor = 0.05
+                army_morale_factor = 0.10
+                supply_consumption_factor = -0.10
+                truck_attrition_factor = -0.15
+            }
+            
+            picture = GFX_idea_soviet_war_preparation
         }
-        
-        # Модификаторы, которые получает страна
-        modifier = {
-            # Организация: +5% к максимуму (армия_орг_фактор)
-            army_org_factor = 0.05
-            # Восстановление организации: +10%
-            army_morale_factor = 0.10
-            # Снабжение: -10% к потреблению припасов
-            supply_consumption_factor = -0.10
-            # Логистика: +15% к скорости передвижения грузовиков (улучшает доставку)
-            truck_attrition_factor = -0.15
-        }
-        
-        # Идея исчезнет сама, если не указать срок, но мы зададим его в событии
-        picture = GFX_idea_soviet_war_preparation  # Можно заменить на любую подходящую
     }
 }
